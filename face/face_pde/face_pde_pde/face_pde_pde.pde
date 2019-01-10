@@ -69,6 +69,14 @@ int eh = 40;
 // values for the pupils 
 float p = 2; 
 
+// values for the cheeks
+float chSpacing = 80; 
+float chYpos = 50; 
+float ch = 50; 
+int chR = 155; // cheeks r 
+int chG = 100; // cheeks g
+int chB = 255; // cheeks b
+
 // values for the nose 
 int noseX = 10; 
 int noseY = 0; 
@@ -124,11 +132,11 @@ void setup(){
 }
 
 void draw(){
-  //translate(width/2 - 250, height/2 - 250); 
+  translate(width/2 - 250, height/2 - 250); 
 
   // clears background with every draw
-  // fourth parameter specifies alpha -- 80% will leave a slight trail upon change
-  fill(255, 255, 255, 80);
+  // fourth parameter specifies alpha -- anything < 100% will leave a slight trail upon change
+  fill(255, 255, 255);
   rect(0, 0, width * 2, height * 2); // white bg
   
   
@@ -143,18 +151,19 @@ void draw(){
   strokeWeight(4); // sets linewidth 
   
   // buns (bun1x, bun2x, buny, bunSize) 
-  // note -- if bunsize is reduced to 0, there will be no bun
+  // note : if bunsize is reduced to 0, there will be no bun & positions of each can be 
+  // centered on her head to make one top knot 
   strokeWeight(hairstrw); // linewidth for hair & buns 
   for (float i = bunSize; i > 0; i = i -1){
-    ellipse(hsx + bun1x, buny, i * i, i * i); 
-    ellipse(hex + bun2x, buny, i * i, i * i); 
+    ellipse(hsx + bun1x, buny, i * i, i * i); // left bun 
+    ellipse(hex + bun2x, buny, i * i, i * i); // right bun 
   }
   
   
-  rectMode(CENTER); // rect fills in gap that bezier leaves 
-                    // between forehead and hair
+  rectMode(CENTER); // this rectangle fills in the gap that the head bezier leaves 
+                    // between "forehead" and hair
   noStroke(); 
-  rect(250, 206, 220, 110); // ^^ 
+  rect(250, 206, 220, 110); //  
  
  // head (hsx, hsy, hcp1x, hcp1y, hcp2x, hcp2y, hex, hey)
   fill(255, 255, 255);
@@ -169,38 +178,35 @@ void draw(){
     bezier(hex, 200 + i * hairl, hex, 100 + i * i, 250, 120, 250, hairln);    
   }
 
+  // cheeks (chSpacing, chYpos, ch (radius) ) 
+  fill(chR, chG, chB); // fills with reddish color initially 
+  noStroke(); 
+  ellipse(hsx + 130 - chSpacing, 250 + chYpos, ch, ch); 
+  ellipse(hex - 130 + chSpacing, 250 + chYpos, ch, ch); 
+  fill(255, 255, 255); 
+  
   fill(255, 255, 255); 
   strokeWeight(4); 
+  stroke(0); 
   
-  // eyes (250 +- espac, 250 + eypos, ew, eh) 
+  // eyes (espac, eypos, ew, eh) 
   ellipse(250 - espac, 250 + eypos, ew, eh);
   ellipse(250 + espac, 250 + eypos, ew, eh);
   
-  // pupils
+  // pupils (p) 
   fill(0); 
   ellipse(250 - espac, 250 + eypos, p, p); 
   ellipse(250 + espac, 250 + eypos, p, p); 
   
   // eyebrows
   noFill(); 
-
-  fill(255, 255, 255); 
   
-  // nose
-  bezier(250 - noseX, 300 + noseY, 250 - noseCx, 250 + noseCy, 250 + noseCx, 250 + noseCy, 250 + noseX, 300 + noseY); 
-  
-  // mouth 
+  // mouth (mouthX, mouthY, mouthCx, mouthCy) 
   bezier(250 - mouthX, 320 + mouthY, 250 - mouthCx, 330 + mouthCy, 250 + mouthCx, 330 + mouthCy, 250 + mouthX, 320 + mouthY); 
-
   
-  //// DEBUG
-  //fill(random(255), random(255), random(255)); 
-  //ellipse(250, 250, test, test); 
-
-  noStroke();
-  
-  
-
+  // nose (noseX, noseY, noseCx, noseCy) 
+  fill(255, 255, 255); // makes nose look like it protrudes
+  bezier(250 - noseX, 300 + noseY, 250 - noseCx, 250 + noseCy, 250 + noseCx, 250 + noseCy, 250 + noseX, 300 + noseY); 
 }
 
 void keyPressed(){
@@ -233,8 +239,7 @@ void keyPressed(){
   
 }
 
-
-
+// this function is called because Processing's pullups do not work properly 
 void updateEncoder(int pin){
   if (selectedMenu == 0) {
     
@@ -503,17 +508,6 @@ void updateEncoder(int pin){
   knob4LastEncoded = knob4_encoded;
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
    else if(selectedMenu == 3){
   ////////////////////////////////////////////
   ////        KNOB 1 : EYES                ////
@@ -597,27 +591,6 @@ void updateEncoder(int pin){
   knob4LastEncoded = knob4_encoded;
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   else if(selectedMenu == 4){
   ////////////////////////////////////////////
   ////        KNOB 5 : PUPILS              ////
@@ -640,7 +613,7 @@ void updateEncoder(int pin){
   knob1LastEncoded = knob1_encoded;
   
   ////////////////////////////////////////////
-  ////           KNOB 2 : EYES            ////
+  ////           KNOB 2 : CHEEKS           ////
   ////////////////////////////////////////////
   
   int knob2_MSB = GPIO.digitalRead(knob2Clk);
@@ -650,11 +623,11 @@ void updateEncoder(int pin){
   int knob2_sum = (knob2LastEncoded << 2) | knob2_encoded;
   
   if (knob2_sum == unbinary("1101") || knob2_sum == unbinary("0100") || knob2_sum == unbinary("0010") || knob2_sum == unbinary("1011")) {
-    eypos = eypos - 1;  
+    chSpacing = chSpacing - 1;   
   }
   
   if (knob2_sum == unbinary("1110") || knob2_sum == unbinary("0111") || knob2_sum == unbinary("0001") || knob2_sum == unbinary("1000")) { 
-    eypos = eypos + 1;  
+    chSpacing = chSpacing + 1;  
   }
 
   knob2LastEncoded = knob2_encoded;
@@ -670,11 +643,11 @@ void updateEncoder(int pin){
   int knob3_sum = (knob3LastEncoded << 2) | knob3_encoded;
   
   if (knob3_sum == unbinary("1101") || knob3_sum == unbinary("0100") || knob3_sum == unbinary("0010") || knob3_sum == unbinary("1011")) {
-    ew = ew - 1; 
+    chYpos = chYpos - 1; 
   }
   
   if (knob3_sum == unbinary("1110") || knob3_sum == unbinary("0111") || knob3_sum == unbinary("0001") || knob3_sum == unbinary("1000")) { 
-    ew = ew + 1; 
+    chYpos = chYpos + 1; 
   }
 
   knob3LastEncoded = knob3_encoded;
@@ -690,51 +663,16 @@ void updateEncoder(int pin){
   int knob4_sum = (knob4LastEncoded << 2) | knob4_encoded;
   
   if (knob4_sum == unbinary("1101") || knob4_sum == unbinary("0100") || knob4_sum == unbinary("0010") || knob4_sum == unbinary("1011")) {
-     eh = eh - 1; 
+     ch = ch - 1; 
      
   }
   
   if (knob4_sum == unbinary("1110") || knob4_sum == unbinary("0111") || knob4_sum == unbinary("0001") || knob4_sum == unbinary("1000")) { 
-     eh = eh + 1; 
+     ch = ch + 1; 
   }
 
   knob4LastEncoded = knob4_encoded;
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
    else if(selectedMenu == 5){
   ////////////////////////////////////////////
@@ -818,35 +756,6 @@ void updateEncoder(int pin){
 
   knob4LastEncoded = knob4_encoded;
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
     else if(selectedMenu == 6){
   ////////////////////////////////////////////
