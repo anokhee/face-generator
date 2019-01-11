@@ -30,9 +30,12 @@ int knob4LastEncoded = 0;
 //      RE: UPPER MENU       //
 ///////////////////////////////
 
-String[] menu = {"head »", "« hair »", "« buns »", "« eyes »", "« eyes 2 »", "« nose »", "« mouth"}; // array for menu items 
+String[] menu = {"head »", "« hair »", "« buns »", 
+                 "« eyes »", "« pupils / cheeks »", "« nose »", 
+                 "« mouth"}; // array for menu items 
 int selectedMenu = 0; // index position of current menu item; menu COUNTER 
 String menuText = menu[selectedMenu]; // declares menu as initially blank 
+
 
 // global font variable
 PFont f; // empty declaration for font
@@ -90,8 +93,8 @@ int mouthCx = 25;
 int mouthCy = 0;  
 
 void setup(){
-  size(500, 500);
-  //fullScreen(); 
+  //size(600, 600);
+  fullScreen(); 
   
   
   // GPIO pinout config for knob #1
@@ -128,24 +131,32 @@ void setup(){
   GPIO.attachInterrupt(knob4Dt, this, "updateEncoder", GPIO.CHANGE);
 
   // setup for standard font 
-  f = createFont("Arial", 16, true); 
+  f = createFont("Noto Mono", 16, true); 
 }
 
-void draw(){
-  translate(width/2 - 250, height/2 - 250); 
+void draw(){ 
+   translate(width/2 - 250, height/2 - 250); 
 
   // clears background with every draw
   // fourth parameter specifies alpha -- anything < 100% will leave a slight trail upon change
-  fill(255, 255, 255);
-  rect(0, 0, width * 2, height * 2); // white bg
+  fill(255, 25, 0);
+  rectMode(CENTER); 
+  stroke(4); 
+  rect(0, 0, width * 2, height * 2); 
+ 
   
+  fill(255,255,255); 
+  rectMode(CENTER); 
+  rect(250, 250, width - 125, height - 125); 
   
   // sets up font styling / placement for MENU  
   textAlign(CENTER); 
   fill(0);  // black text 
   textFont(f, 24); // sets font f to 24px in size 
-  text(menuText, 250, 30); // displays menu text at coordinates (250, 30) 
+  text(menuText, 250, -10); // displays menu text at coordinates (250, 30) 
   
+  scale(2); 
+  translate(-125, -125); 
   fill(255); // gives the HEAD a fill of '255' / white 
   stroke(0); // '0' / black stroke 
   strokeWeight(4); // sets linewidth 
@@ -160,22 +171,19 @@ void draw(){
   }
   
   
-  rectMode(CENTER); // this rectangle fills in the gap that the head bezier leaves 
-                    // between "forehead" and hair
-  noStroke(); 
-  rect(250, 206, 220, 110); //  
+  fill(255, 255, 255); 
  
  // head (hsx, hsy, hcp1x, hcp1y, hcp2x, hcp2y, hex, hey)
-  fill(255, 255, 255);
   stroke(0); 
   strokeWeight(4);
   bezier(hsx, hsy, hcp1x, hcp1y, hcp2x, hcp2y, hex, hey);
   
+ 
   // hair (hsx, hex, hairl, hairln) 
   strokeWeight(hairstrw); 
-  for(int i = 0; i < hairk; i = i + 1){ 
-    bezier(hsx, 200 + i * hairl, hsx, 100 + i * i, 250, 120, 250, hairln);
-    bezier(hex, 200 + i * hairl, hex, 100 + i * i, 250, 120, 250, hairln);    
+  for(int i = 0; i < hairk + 1; i = i + 1){ 
+    bezier(hsx, 250 + i * hairl, hsx, 100 + i * i, 250, 120, 250, hairln);
+    bezier(hex, 250 + i * hairl, hex, 100 + i * i, 250, 120, 250, hairln);    
   }
 
   // cheeks (chSpacing, chYpos, ch (radius) ) 
@@ -211,7 +219,7 @@ void draw(){
 
 void keyPressed(){
   // codes interactivity with menu (keyboard)  
-  menuText = menu[selectedMenu]; 
+  
  
   if(key == CODED){
     if (keyCode == LEFT){
@@ -222,7 +230,7 @@ void keyPressed(){
       selectedMenu = selectedMenu - 1;
     }
      
-    println(menu[selectedMenu]); 
+    menuText = menu[selectedMenu]; 
   }
     else if (keyCode == RIGHT){
       if(selectedMenu >= menu.length - 1){
@@ -232,7 +240,7 @@ void keyPressed(){
         selectedMenu = selectedMenu + 1; 
         
       }
-      
+      menuText = menu[selectedMenu]; 
     println(menu[selectedMenu]); 
     }
   }
@@ -840,3 +848,15 @@ void updateEncoder(int pin){
   knob4LastEncoded = knob4_encoded;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+// TO ADD: CHEEKS RGBA, FRAME RGBA, EYEBROWS!!!!!! 
