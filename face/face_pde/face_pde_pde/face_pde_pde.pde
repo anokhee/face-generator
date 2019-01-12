@@ -1,5 +1,10 @@
 import processing.io.*; 
 
+int r = 250;
+int g = 0; 
+int b = 0; 
+
+
 ///////////////////////////////
 //    GPIO PINOUT CONFIG     //
 //      Knobs 1 - 4          //
@@ -25,17 +30,33 @@ int knob4Clk = 23;
 int knob4Dt = 24;
 int knob4LastEncoded = 0; 
 
+/////////////////////////////////
+//      Buttons 1 - 3         //
+////////////////////////////////
+
+// button1 - blue 
+// this button will act as the LEFT arrow key
+int bluePin = 7; 
+
+// button2 - red
+// this button will act as a RANDOMIZE (within certain bounds)
+int redPin = 13; 
+
+// button3 - yellow
+// this button will act as the RIGHT arrow key
+int yellowPin = 21; 
+
+
 ///////////////////////////////
 //    GLOBAL VARIABLES       //
 //      RE: UPPER MENU       //
 ///////////////////////////////
 
-String[] menu = {"head »", "« hair »", "« buns »", 
-                 "« eyes »", "« pupils / cheeks »", "« nose »", 
-                 "« mouth"}; // array for menu items 
+String[] menu = {"head", "hair", "buns", 
+                 "eyes", "pupils / cheeks", "nose", 
+                 "mouth", "RGBA cheeks", "RGBA background"}; // array for menu items 
 int selectedMenu = 0; // index position of current menu item; menu COUNTER 
 String menuText = menu[selectedMenu]; // declares menu as initially blank 
-
 
 // global font variable
 PFont f; // empty declaration for font
@@ -52,9 +73,9 @@ float hex = 400;
 float hey = 200;
 
 // values for the buns
-int bun1x = 0; 
-int bun2x = 0; 
-int buny = 150;
+float bun1x = 0; 
+float bun2x = 0; 
+float buny = 150;
 float bunSize = 10; 
 
 // values for the hair
@@ -79,6 +100,7 @@ float ch = 50;
 int chR = 155; // cheeks r 
 int chG = 100; // cheeks g
 int chB = 255; // cheeks b
+int chA = 100; // cheeks a
 
 // values for the nose 
 int noseX = 10; 
@@ -93,8 +115,8 @@ int mouthCx = 25;
 int mouthCy = 0;  
 
 void setup(){
-  //size(600, 600);
-  fullScreen(); 
+  size(600, 600);
+  //fullScreen(); 
   
   
   // GPIO pinout config for knob #1
@@ -129,6 +151,11 @@ void setup(){
   // #4
   GPIO.attachInterrupt(knob4Clk, this, "updateEncoder", GPIO.CHANGE);
   GPIO.attachInterrupt(knob4Dt, this, "updateEncoder", GPIO.CHANGE);
+  
+  // GPIO config for buttons 
+  
+  // blue button (#1) 
+  GPIO.pinMode(bluePin, GPIO.INPUT_PULLUP);
 
   // setup for standard font 
   f = createFont("Noto Mono", 16, true); 
@@ -136,12 +163,16 @@ void setup(){
 
 void draw(){ 
    translate(width/2 - 250, height/2 - 250); 
+ 
 
   // clears background with every draw
   // fourth parameter specifies alpha -- anything < 100% will leave a slight trail upon change
-  fill(255, 25, 0);
+  fill(255); 
+  rect(0, 0, width * 2, height * 2); 
+  
   rectMode(CENTER); 
   stroke(4); 
+  fill(r, g, b);
   rect(0, 0, width * 2, height * 2); 
  
   
@@ -149,29 +180,109 @@ void draw(){
   rectMode(CENTER); 
   rect(250, 250, width - 125, height - 125); 
   
-  // sets up font styling / placement for MENU  
+  // sets up menu decorations 
+  rect(250, -15, 500, 40); 
+  
+  fill(0, 204, 0);
+  rect(25, -15, 50, 40);
+  rect(475, -15, 50, 40);
+
+  // sets up font styling / placement for MENU 
   textAlign(CENTER); 
   fill(0);  // black text 
   textFont(f, 24); // sets font f to 24px in size 
-  text(menuText, 250, -10); // displays menu text at coordinates (250, 30) 
+  text(menuText, 250, -7.5); // displays menu text at coordinates (250, 30) 
   
-  scale(2); 
-  translate(-125, -125); 
+  if (GPIO.digitalRead(bluePin) == GPIO.LOW) {
+    if(selectedMenu <= 0){
+      selectedMenu = 0; 
+    }
+    else {
+      selectedMenu = selectedMenu - 1;
+    }
+    menuText = menu[selectedMenu]; 
+  }
+  
+  if (GPIO.digitalRead(yellowPin) == GPIO.LOW){
+    if(selectedMenu >= menu.length - 1){
+        selectedMenu = menu.length - 1;
+      }
+      else {
+        selectedMenu = selectedMenu + 1; 
+        
+      }
+      menuText = menu[selectedMenu]; 
+  }
+  
+   if (GPIO.digitalRead(redPin) == GPIO.LOW){
+    // bezier(hsx, hsy, hcp1x, hcp1y, hcp2x, hcp2y, hex, hey)
+    hsx = 100;
+    hsy = 200;
+    hcp1x = 100;
+    hcp1y = 450;
+    hcp2x = 400;
+    hcp2y = 450;
+    hex = 400;
+    hey = 200;
+    
+    // values for the buns
+    bun1x = 0; 
+    bun2x = 0; 
+    buny = 150;
+    bunSize = 10; 
+    
+    // values for the hair
+    hairk = 15; 
+    hairl = 6; 
+    hairln = 160; 
+    hairstrw = 4; 
+    
+    // values for the eyes 
+    espac = 50; 
+    eypos = 0; 
+    ew = 60; 
+    eh = 40; 
+    
+    // values for the pupils 
+    p = 2; 
+    
+    // values for the cheeks
+    chSpacing = 80; 
+    chYpos = 50; 
+    ch = 50; 
+    chR = 155; // cheeks r 
+    chG = 100; // cheeks g
+    chB = 255; // cheeks b
+    chA = 100; // cheeks a
+    
+    // values for the nose 
+    noseX = 10; 
+    noseY = 0; 
+    noseCx = 40;
+    noseCy = 0;  
+    
+    // values for the mouth 
+    mouthX = 50; 
+    mouthY = 0; 
+    mouthCx = 25;
+    mouthCy = 0;  
+    
+   }
+   
   fill(255); // gives the HEAD a fill of '255' / white 
   stroke(0); // '0' / black stroke 
   strokeWeight(4); // sets linewidth 
   
   // buns (bun1x, bun2x, buny, bunSize) 
   // note : if bunsize is reduced to 0, there will be no bun & positions of each can be 
-  // centered on her head to make one top knot 
+  // centered on her head to make one topknot 
+  fill(255); 
   strokeWeight(hairstrw); // linewidth for hair & buns 
   for (float i = bunSize; i > 0; i = i -1){
     ellipse(hsx + bun1x, buny, i * i, i * i); // left bun 
     ellipse(hex + bun2x, buny, i * i, i * i); // right bun 
   }
-  
-  
-  fill(255, 255, 255); 
+
  
  // head (hsx, hsy, hcp1x, hcp1y, hcp2x, hcp2y, hex, hey)
   stroke(0); 
@@ -180,14 +291,15 @@ void draw(){
   
  
   // hair (hsx, hex, hairl, hairln) 
+  noFill(); 
   strokeWeight(hairstrw); 
-  for(int i = 0; i < hairk + 1; i = i + 1){ 
+  for(int i = 0; i < hairk; i = i + 1){ 
     bezier(hsx, 250 + i * hairl, hsx, 100 + i * i, 250, 120, 250, hairln);
     bezier(hex, 250 + i * hairl, hex, 100 + i * i, 250, 120, 250, hairln);    
   }
 
   // cheeks (chSpacing, chYpos, ch (radius) ) 
-  fill(chR, chG, chB); // fills with reddish color initially 
+  fill(chR, chG, chB, chA); // fills with reddish color initially 
   noStroke(); 
   ellipse(hsx + 130 - chSpacing, 250 + chYpos, ch, ch); 
   ellipse(hex - 130 + chSpacing, 250 + chYpos, ch, ch); 
@@ -217,37 +329,9 @@ void draw(){
   bezier(250 - noseX, 300 + noseY, 250 - noseCx, 250 + noseCy, 250 + noseCx, 250 + noseCy, 250 + noseX, 300 + noseY); 
 }
 
-void keyPressed(){
-  // codes interactivity with menu (keyboard)  
-  
- 
-  if(key == CODED){
-    if (keyCode == LEFT){
-    if(selectedMenu <= 0){
-      selectedMenu = 0; 
-    }
-    else {
-      selectedMenu = selectedMenu - 1;
-    }
-     
-    menuText = menu[selectedMenu]; 
-  }
-    else if (keyCode == RIGHT){
-      if(selectedMenu >= menu.length - 1){
-        selectedMenu = menu.length - 1;
-      }
-      else {
-        selectedMenu = selectedMenu + 1; 
-        
-      }
-      menuText = menu[selectedMenu]; 
-    println(menu[selectedMenu]); 
-    }
-  }
-  
-}
-
-// this function is called because Processing's pullups do not work properly 
+// this function is called because Processing does not support pullups
+// with the rotary encoders, specifically
+// support pullups
 void updateEncoder(int pin){
   if (selectedMenu == 0) {
     
@@ -765,7 +849,7 @@ void updateEncoder(int pin){
   knob4LastEncoded = knob4_encoded;
   }
   
-    else if(selectedMenu == 6){
+  else if(selectedMenu == 6){
   ////////////////////////////////////////////
   ////        KNOB 1 : MOUTH              ////
   ////////////////////////////////////////////
@@ -846,6 +930,160 @@ void updateEncoder(int pin){
   }
 
   knob4LastEncoded = knob4_encoded;
+  }
+  
+  else if(selectedMenu == 7){
+  ////////////////////////////////////////////
+  ////        KNOB 1 : RGBA CHEEKS        ////
+  ////////////////////////////////////////////
+  
+  int knob1_MSB = GPIO.digitalRead(knob1Clk);
+  int knob1_LSB = GPIO.digitalRead(knob1Dt);
+  
+  int knob1_encoded = (knob1_MSB << 1) | knob1_LSB;
+  int knob1_sum = (knob1LastEncoded << 2) | knob1_encoded;
+  
+  if (knob1_sum == unbinary("1101") || knob1_sum == unbinary("0100") || knob1_sum == unbinary("0010") || knob1_sum == unbinary("1011")) {
+    chR = chR - 1; 
+  }
+  
+  if (knob1_sum == unbinary("1110") || knob1_sum == unbinary("0111") || knob1_sum == unbinary("0001") || knob1_sum == unbinary("1000")) { 
+    chR = chR + 1; 
+  }
+
+  knob1LastEncoded = knob1_encoded;
+  
+  ////////////////////////////////////////////
+  ////           KNOB 2 : RGBA CHEEKS     ////
+  ////////////////////////////////////////////
+  
+  int knob2_MSB = GPIO.digitalRead(knob2Clk);
+  int knob2_LSB = GPIO.digitalRead(knob2Dt);
+  
+  int knob2_encoded = (knob2_MSB << 1) | knob2_LSB;
+  int knob2_sum = (knob2LastEncoded << 2) | knob2_encoded;
+  
+  if (knob2_sum == unbinary("1101") || knob2_sum == unbinary("0100") || knob2_sum == unbinary("0010") || knob2_sum == unbinary("1011")) {
+    chG = chG - 1;  
+  }
+  
+  if (knob2_sum == unbinary("1110") || knob2_sum == unbinary("0111") || knob2_sum == unbinary("0001") || knob2_sum == unbinary("1000")) { 
+    chG = chG + 1; 
+  }
+
+  knob2LastEncoded = knob2_encoded;
+  
+  ////////////////////////////////////////////
+  ////           KNOB 3 : RGBA CHEEKS     ////
+  ////////////////////////////////////////////
+  
+  int knob3_MSB = GPIO.digitalRead(knob3Clk);
+  int knob3_LSB = GPIO.digitalRead(knob3Dt);
+  
+  int knob3_encoded = (knob3_MSB << 1) | knob3_LSB;
+  int knob3_sum = (knob3LastEncoded << 2) | knob3_encoded;
+  
+  if (knob3_sum == unbinary("1101") || knob3_sum == unbinary("0100") || knob3_sum == unbinary("0010") || knob3_sum == unbinary("1011")) {
+    chB = chB - 1; 
+  }
+  
+  if (knob3_sum == unbinary("1110") || knob3_sum == unbinary("0111") || knob3_sum == unbinary("0001") || knob3_sum == unbinary("1000")) { 
+    chB = chB + 1; 
+  }
+
+  knob3LastEncoded = knob3_encoded;
+  
+   ////////////////////////////////////////////
+  ////           KNOB 4 : RGBA CHEEKS      ////
+  ////////////////////////////////////////////
+  
+  int knob4_MSB = GPIO.digitalRead(knob4Clk);
+  int knob4_LSB = GPIO.digitalRead(knob4Dt);
+  
+  int knob4_encoded = (knob4_MSB << 1) | knob4_LSB;
+  int knob4_sum = (knob4LastEncoded << 2) | knob4_encoded;
+  
+  if (knob4_sum == unbinary("1101") || knob4_sum == unbinary("0100") || knob4_sum == unbinary("0010") || knob4_sum == unbinary("1011")) {
+     chA = chA - 1;
+     
+  }
+  
+  if (knob4_sum == unbinary("1110") || knob4_sum == unbinary("0111") || knob4_sum == unbinary("0001") || knob4_sum == unbinary("1000")) { 
+     chA = chA + 1; 
+  }
+
+  knob4LastEncoded = knob4_encoded;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  else if(selectedMenu == 8){
+  ////////////////////////////////////////////
+  ////        KNOB 1 : RGBA CHEEKS        ////
+  ////////////////////////////////////////////
+  
+  int knob1_MSB = GPIO.digitalRead(knob1Clk);
+  int knob1_LSB = GPIO.digitalRead(knob1Dt);
+  
+  int knob1_encoded = (knob1_MSB << 1) | knob1_LSB;
+  int knob1_sum = (knob1LastEncoded << 2) | knob1_encoded;
+  
+  if (knob1_sum == unbinary("1101") || knob1_sum == unbinary("0100") || knob1_sum == unbinary("0010") || knob1_sum == unbinary("1011")) {
+    r = r - 5; 
+  }
+  
+  if (knob1_sum == unbinary("1110") || knob1_sum == unbinary("0111") || knob1_sum == unbinary("0001") || knob1_sum == unbinary("1000")) { 
+    r = r + 5; 
+  }
+
+  knob1LastEncoded = knob1_encoded;
+  
+  ////////////////////////////////////////////
+  ////           KNOB 2 : RGBA CHEEKS     ////
+  ////////////////////////////////////////////
+  
+  int knob2_MSB = GPIO.digitalRead(knob2Clk);
+  int knob2_LSB = GPIO.digitalRead(knob2Dt);
+  
+  int knob2_encoded = (knob2_MSB << 1) | knob2_LSB;
+  int knob2_sum = (knob2LastEncoded << 2) | knob2_encoded;
+  
+  if (knob2_sum == unbinary("1101") || knob2_sum == unbinary("0100") || knob2_sum == unbinary("0010") || knob2_sum == unbinary("1011")) {
+    g = g - 5;  
+  }
+  
+  if (knob2_sum == unbinary("1110") || knob2_sum == unbinary("0111") || knob2_sum == unbinary("0001") || knob2_sum == unbinary("1000")) { 
+    g = g + 5; 
+  }
+
+  knob2LastEncoded = knob2_encoded;
+  
+  ////////////////////////////////////////////
+  ////           KNOB 3 : RGBA CHEEKS     ////
+  ////////////////////////////////////////////
+  
+  int knob3_MSB = GPIO.digitalRead(knob3Clk);
+  int knob3_LSB = GPIO.digitalRead(knob3Dt);
+  
+  int knob3_encoded = (knob3_MSB << 1) | knob3_LSB;
+  int knob3_sum = (knob3LastEncoded << 2) | knob3_encoded;
+  
+  if (knob3_sum == unbinary("1101") || knob3_sum == unbinary("0100") || knob3_sum == unbinary("0010") || knob3_sum == unbinary("1011")) {
+    b = b - 5; 
+  }
+  
+  if (knob3_sum == unbinary("1110") || knob3_sum == unbinary("0111") || knob3_sum == unbinary("0001") || knob3_sum == unbinary("1000")) { 
+    b = b + 5; 
+  }
+
+  knob3LastEncoded = knob3_encoded;
   }
 }
 
