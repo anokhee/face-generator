@@ -15,13 +15,13 @@ void updateEncoder(int pin){
   int knob1_sum = (knob1LastEncoded << 2) | knob1_encoded;
   
   if (knob1_sum == unbinary("1101") || knob1_sum == unbinary("0100") || knob1_sum == unbinary("0010") || knob1_sum == unbinary("1011")) {
-    hsx = hsx - 1; 
-    hex = hex + 1; 
+    hsx = hsx + 1; 
+    hex = hex - 1; 
   }
   
   if (knob1_sum == unbinary("1110") || knob1_sum == unbinary("0111") || knob1_sum == unbinary("0001") || knob1_sum == unbinary("1000")) { 
-    hsx = hsx + 1; 
-    hex = hex - 1; 
+    hsx = hsx - 1; 
+    hex = hex + 1; 
   }
 
   knob1LastEncoded = knob1_encoded;

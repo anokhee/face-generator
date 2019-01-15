@@ -45,10 +45,10 @@ float hairln = 160;
 float hairstrw = 4; 
 
 // values for the EYES 
-int espac = 50; 
-int eypos = 0; 
-int ew = 60; 
-int eh = 40; 
+float espac = 50; 
+float eypos = 0; 
+float ew = 60; 
+float eh = 40; 
 
 // values for the PUPILS 
 float p = 2; 
@@ -64,13 +64,13 @@ int chB = 255; // cheeks b
 int chA = 100; // cheeks a
 
 // values for the NOSE 
-int noseX = 10; 
-int noseY = 0; 
-int noseCx = 40;
-int noseCy = 0;  
+float noseX = 10; 
+float noseY = 0; 
+float noseCx = 40;
+float noseCy = 0;  
 
 // values for the MOUTH 
-int mouthX = 50; 
-int mouthY = 0; 
-int mouthCx = 25;
-int mouthCy = 0;  
+float mouthX = 50; 
+float mouthY = 0; 
+float mouthCx = 25;
+float mouthCy = 0;  

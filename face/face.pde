@@ -1,10 +1,9 @@
 import processing.io.*; 
 
 void setup(){
-  size(600, 600);
-  //fullScreen(); 
-  
-  
+  //size(600, 600);
+  fullScreen(); 
+
   // GPIO pinout config for knob #1
   GPIO.pinMode(knob1Clk, GPIO.INPUT);
   GPIO.pinMode(knob1Dt, GPIO.INPUT);
@@ -55,11 +54,10 @@ void setup(){
 
 void draw(){ 
    translate(width/2 - 250, height/2 - 250); 
- 
-
+   
   // clears background with every draw
   // fourth parameter specifies alpha -- anything < 100% will leave a slight trail upon change
-  fill(255); 
+  fill(255, 255, 255, 70); 
   rect(0, 0, width * 2, height * 2); 
   
   rectMode(CENTER); 
@@ -109,64 +107,7 @@ void draw(){
   }
   
    if (GPIO.digitalRead(redPin) == GPIO.LOW){
-    // bezier(hsx, hsy, hcp1x, hcp1y, hcp2x, hcp2y, hex, hey)
-    int hsxHexRand = int(random(-50, 100)); 
-    int hsyHeyRand = int(random(-50, 100)); 
-    int hcp1xHcp2x = int(random(-50, 100)); 
-    int hcp1yHcp2y = int(random(-150, 100)); 
-    
-    hsx = 100 - hsxHexRand;
-    hsy = 200 + hsyHeyRand;
-    hcp1x = 100 - hcp1xHcp2x;
-    hcp1y = 450 - hcp1yHcp2y;
-    hcp2x = 400 + hcp1xHcp2x;
-    hcp2y = 450 - hcp1yHcp2y;
-    hex = 400 + hsxHexRand;
-    hey = 200 + hsyHeyRand;
-    
-    // values for the buns
-    float bunsXRand = random(0, 100); 
-    bun1x = bunsXRand; 
-    bun2x = -bunsXRand; 
-    buny = 140;
-    bunSize = random(10 , 15); 
-    
-    // values for the hair
-    hairk = random(10, 20); 
-    hairl = random(-10, 10); 
-    hairln = random(40, 200); 
-    hairstrw = random(2, 20); 
-    
-    // values for the eyes 
-    espac = 50; 
-    eypos = 0; 
-    ew = 60; 
-    eh = 40; 
-    
-    // values for the pupils 
-    p = 2; 
-    
-    // values for the cheeks
-    chSpacing = 80; 
-    chYpos = 50; 
-    ch = 50; 
-    chR = 155; // cheeks r 
-    chG = 100; // cheeks g
-    chB = 255; // cheeks b
-    chA = 100; // cheeks a
-    
-    // values for the nose 
-    noseX = 10; 
-    noseY = 0; 
-    noseCx = 40;
-    noseCy = 0;  
-    
-    // values for the mouth 
-    mouthX = 50; 
-    mouthY = 0; 
-    mouthCx = 25;
-    mouthCy = 0;  
-    
+    randomize(); 
    }
    
   fill(255); // gives the HEAD a fill of '255' / white 
