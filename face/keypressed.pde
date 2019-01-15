@@ -1,6 +1,6 @@
 void keyPressed(){
   
-  // LEFT arrow menu scroll
+  // RANDOMIZE function called when RETURN/ENTER is pressed
   if (keyCode == ENTER || keyCode == RETURN){
      randomize(); 
   }

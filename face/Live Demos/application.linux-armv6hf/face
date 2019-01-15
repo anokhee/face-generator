@@ -1,0 +1,5 @@
+#!/bin/sh
+
+APPDIR=$(readlink -f "$0")
+APPDIR=$(dirname "$APPDIR")
+$APPDIR/java/bin/java -Djna.nosys=true -Djava.ext.dirs="$APPDIR/java/lib/ext" -Djava.library.path="$APPDIR:$APPDIR/lib" -cp "$APPDIR:$APPDIR/lib/face.jar:$APPDIR/lib/core.jar:$APPDIR/lib/jogl-all.jar:$APPDIR/lib/gluegen-rt.jar:$APPDIR/lib/jogl-all-natives-linux-armv6hf.jar:$APPDIR/lib/gluegen-rt-natives-linux-armv6hf.jar:$APPDIR/lib/io.jar" face "$@"
