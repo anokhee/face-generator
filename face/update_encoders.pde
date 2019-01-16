@@ -695,7 +695,7 @@ void updateEncoder(int pin){
   
   else if(selectedMenu == 8){
   ////////////////////////////////////////////
-  ////        KNOB 1 : RGBA CHEEKS        ////
+  ////        KNOB 1 : RGBA BG       ////
   ////////////////////////////////////////////
   
   int knob1_MSB = GPIO.digitalRead(knob1Clk);
@@ -715,7 +715,7 @@ void updateEncoder(int pin){
   knob1LastEncoded = knob1_encoded;
   
   ////////////////////////////////////////////
-  ////           KNOB 2 : RGBA CHEEKS     ////
+  ////           KNOB 2 : RGBA BG     ////
   ////////////////////////////////////////////
   
   int knob2_MSB = GPIO.digitalRead(knob2Clk);
@@ -735,7 +735,7 @@ void updateEncoder(int pin){
   knob2LastEncoded = knob2_encoded;
   
   ////////////////////////////////////////////
-  ////           KNOB 3 : RGBA CHEEKS     ////
+  ////           KNOB 3 : RGBA BG     ////
   ////////////////////////////////////////////
   
   int knob3_MSB = GPIO.digitalRead(knob3Clk);

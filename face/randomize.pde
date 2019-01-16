@@ -58,6 +58,6 @@ void randomize(){
     mouthCx = random(10, 35);
     mouthCy = random(-30, 20);
     
-    delay(100); 
+    delay(50); 
 
 }

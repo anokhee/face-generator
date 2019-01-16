@@ -91,7 +91,7 @@ void draw(){
       selectedMenu = selectedMenu - 1;
     }
     menuText = menu[selectedMenu]; 
-    delay(100); 
+    delay(50); 
   }
   
   if (GPIO.digitalRead(yellowPin) == GPIO.LOW){
@@ -103,7 +103,7 @@ void draw(){
         
       }
       menuText = menu[selectedMenu];
-      delay(100); 
+      delay(50); 
   }
   
    if (GPIO.digitalRead(redPin) == GPIO.LOW){
