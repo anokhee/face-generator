@@ -1,0 +1,32 @@
+# p5
+*.DS_STORE
+.project
+node_modules/*
+experiments/*
+lib_old/*
+lib/p5.*
+lib/modules
+docs/reference/*
+!*.gitkeep
+examples/3d/
+.idea
+dist/
+p5.zip
+bower-repo/
+p5-website/
+.vscode/settings.json
+.nyc_output/*
+coverage/
+lib/p5-test.js
+
+# Processing 
+applet
+application.linux-arm64
+application.linux-armv6hf
+application.linux32
+application.linux64
+application.windows32
+application.windows64
+application.macosx
+out
+

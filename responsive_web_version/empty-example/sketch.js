@@ -3,7 +3,7 @@ function setup() {
 }
 
 function draw() {
-  background(110, 150, 210);
+  background(137, 135, 210);
   noStroke();
 
   let hsx = windowWidth / 2 - 150;
