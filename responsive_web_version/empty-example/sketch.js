@@ -4,11 +4,25 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   face = new Face();
 
-  // let gui_head = new dat.GUI();
-  // gui_head.add(face, 'hsx', 0, 500).name("HSX");
-  // gui_head.add(face, 'hsy', -500, 500).name("HSY");
-  // gui_head.add(face, 'hcp1x', 0, 500).name("Forehead - X");
-  // gui_head.add(face, 'hcp1y', -500, 500).name("Forehead - Y");
+  let gui_head = new dat.GUI();
+  gui_head.add(face, 'hsx', 0, 500).name("Forehead Width");
+  gui_head.add(face, 'hcp1x', 0, 600).name("Chin Width");
+  gui_head.add(face, 'hcp1y', -500, 500).name("Chin Height");
+
+  gui_head.add(face, 'bunx', -250, 250).name("Buns' Spacing");
+  gui_head.add(face, 'buny', -600, 600).name("Bun Y-Position");
+  gui_head.add(face, 'bunSize', 0, 20).name("Bun Size");
+
+  gui_head.add(face, 'hairk', 0, 250).name("Hair Fullness");
+  gui_head.add(face, 'hairstr', 0.1, 5).name("Strand Thickness");
+  gui_head.add(face, 'hairl', -250, 250).name("Hair Length");
+  gui_head.add(face, 'hairln', 0, 250).name("Hairline");
+
+
+  gui_head.add(face, 'espac', -250, 250).name("Eyes' Spacing");
+  gui_head.add(face, 'eypos', -600, 600).name("Eyes Y-Position");
+  gui_head.add(face, 'ew', 0, 100).name("Eye Width");
+  gui_head.add(face, 'eh', 0, 100).name("Eye Height");
 }
 
 // Resizes the canvas responsively
@@ -17,50 +31,46 @@ function windowResized() {
 }
 
 function draw() {
-  background(137, 135, 210);
-  noStroke();
-
+  background(255);
   strokeWeight(5);
-  stroke(64, 39, 33);
-  fill(134, 109, 103)
-  for (i = face.bunSize; i > 0; i = i - 1) {
-    ellipse(windowWidth / 2 - face.hsx + face.bun1x,
+  noFill();
+
+  for (i = face.bunSize; i > 0; i = i - face.hairstr) {
+    ellipse(windowWidth / 2 - face.hsx - face.bunx,
       windowHeight / 2 - face.buny,
       i * i, i * i);
-    ellipse(windowWidth / 2 + face.hsx + face.bun2x,
+    ellipse(windowWidth / 2 + face.hsx + face.bunx,
       windowHeight / 2 - face.buny,
       i * i, i * i);
   }
 
-  fill(207, 182, 153);
+
+  beginShape();
+  bezier(windowWidth / 2 - face.hsx, windowHeight / 2 + face.hsy,
+    windowWidth / 2 - face.hcp1x/10, windowHeight / 2 - windowHeight / 7,
+    windowWidth / 2 + face.hcp1x/10, windowHeight / 2 - windowHeight / 7,
+    windowWidth / 2 + face.hsx, windowHeight / 2 + face.hsy);
+
   bezier(windowWidth / 2 - face.hsx, windowHeight / 2 + face.hsy,
     windowWidth / 2 - face.hcp1x, windowHeight / 2 + face.hcp1y,
     windowWidth / 2 + face.hcp1x, windowHeight / 2 + face.hcp1y,
     windowWidth / 2 + face.hsx, windowHeight / 2 + face.hsy);
 
-  fill(134, 109, 103);
-  for (i = 0; i < face.hairk; i = i + 2) {
+  for (i = 0; i < face.hairk; i = i + face.hairstr) {
     bezier(windowWidth / 2 - face.hsx, windowHeight / 2 + i * face.hairl, width / 2 - face.hsx, windowHeight / 4 + i * i, windowWidth / 2, windowHeight / 2.5, windowWidth / 2, windowHeight / 2 - windowHeight / 8 + face.hairln);
     bezier(windowWidth / 2 + face.hsx, windowHeight / 2 + i * face.hairl, width / 2 + face.hsx, windowHeight / 4 + i * i, windowWidth / 2, windowHeight / 2.5, windowWidth / 2, windowHeight / 2 - windowHeight / 8 + face.hairln);
   }
 
-  noStroke();
-  fill(191, 122, 148);
   ellipse(windowWidth / 2 - face.hsx + face.chSpacing, windowHeight / 2 + face.chYpos, face.ch, face.ch);
   ellipse(windowWidth / 2 + face.hsx - face.chSpacing, windowHeight / 2 + face.chYpos, face.ch, face.ch);
 
 
-
-  fill(255);
-  stroke(64, 39, 33);
   ellipse(windowWidth / 2 - face.espac, windowHeight / 2 + face.eypos, face.ew, face.eh);
   ellipse(windowWidth / 2 + face.espac, windowHeight / 2 + face.eypos, face.ew, face.eh);
 
-  fill(64, 39, 33);
   ellipse(windowWidth / 2 - face.espac, windowHeight / 2 + face.eypos, face.p, face.p);
   ellipse(windowWidth / 2 + face.espac, windowHeight / 2 + face.eypos, face.p, face.p);
 
-  noFill();
   bezier(windowWidth / 2 - face.mouthX, windowHeight / 2 + face.mouthY,
     windowWidth / 2 - face.mouthCx, windowHeight / 2 + face.mouthCy,
     windowWidth / 2 + face.mouthCx, windowHeight / 2 + face.mouthCy,
@@ -78,13 +88,13 @@ function Face() {
   this.hcp1x = 120;
   this.hcp1y = 250;
 
-  this.bun1x = 0;
-  this.bun2x = 0;
+  this.bunx = 0;
   this.buny = 50;
   this.bunSize = 10;
 
   this.hairk = 15;
-  this.hairl = 8;
+  this.hairstr = 1;
+  this.hairl = 2;
   this.hairln = 0;
 
   this.espac = 50;
