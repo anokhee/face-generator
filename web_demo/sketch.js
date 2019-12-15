@@ -7,9 +7,7 @@ function setup() {
 
   face = new Face();
   palette = new Colors();
-
   createGUI();
-
 }
 
 // Resizes the canvas responsively
@@ -85,16 +83,16 @@ function makeHair() {
 }
 
 function Face() {
-  this.hsx = 150;
-  this.hsy = 0;
-  this.hcp1x = 120;
-  this.hcp1y = 250;
+  this.hsx = 150; // Bezier control point x1 
+  this.hsy = 0; // Bezier control point y2 
+  this.hcp1x = 120; // Bezier control point x2
+  this.hcp1y = 250; // Bezier control point y2
 
-  this.bunx = 0;
-  this.buny = 50;
-  this.bunSize = 10;
+  this.bunx = 0; // Buns x-position
+  this.buny = 50; // Buns y-position
+  this.bunSize = 10; // Bun height/width
 
-  this.hairk = 15;
+  this.hairk = 15; 
   this.hairstr = 1;
   this.hairl = 2;
   this.hairln = 14;
@@ -130,42 +128,52 @@ function Colors() {
 }
 
 function createGUI() {
-  let gui_head = new dat.GUI();
-  gui_head.addColor(palette, 'backgroundColor').name("Background Color");
-  gui_head.addColor(palette, 'skinColor').name("Skin Color");
-  gui_head.addColor(palette, 'hairColor').name("Hair Color");
-  gui_head.addColor(palette, 'eyeColor').name("Eye Color");
-  gui_head.addColor(palette, 'cheeksColor').name("Cheeks Color");
+  let gui = new dat.GUI();
 
-  gui_head.add(face, 'hsx', 0, 500).name("Forehead Width");
-  gui_head.add(face, 'hcp1x', 0, 500).name("Chin Width");
-  gui_head.add(face, 'hcp1y', -500, 500).name("Chin Height");
 
-  gui_head.add(face, 'bunx', -500, 500).name("Bun Spacing");
-  gui_head.add(face, 'buny', -500, 500).name("Bun Y-Position");
-  gui_head.add(face, 'bunSize', 0, 20).name("Bun Size");
+  let colorsMenu = gui.addFolder('Colors');
+  colorsMenu.addColor(palette, 'backgroundColor').name("Background Color");
+  colorsMenu.addColor(palette, 'skinColor').name("Skin Color");
+  colorsMenu.addColor(palette, 'hairColor').name("Hair Color");
+  colorsMenu.addColor(palette, 'eyeColor').name("Eye Color");
+  colorsMenu.addColor(palette, 'cheeksColor').name("Cheeks Color");
 
-  gui_head.add(face, 'hairk', 0, 25).name("Hair Fullness");
-  gui_head.add(face, 'hairstr', 0.1, 5).name("Strand Thickness");
-  gui_head.add(face, 'hairl', -500, 500).name("Hair Length");
+  let faceMenu = gui.addFolder('Face Shape');
+  faceMenu.add(face, 'hsx', 0, 500).name("Forehead Width");
+  faceMenu.add(face, 'hcp1x', 0, 500).name("Chin Width");
+  faceMenu.add(face, 'hcp1y', -500, 500).name("Chin Height");
 
-  gui_head.add(face, 'espac', -500, 500).name("Eye Spacing");
-  gui_head.add(face, 'eypos', -500, 500).name("Eyes Y-Position");
-  gui_head.add(face, 'ew', 0, 100).name("Eye Width");
-  gui_head.add(face, 'eh', 0, 100).name("Eye Height");
-  gui_head.add(face, 'p', 0, 100).name("Pupils Size");
+  let bunsMenu = gui.addFolder('Hair Buns');
+  bunsMenu.add(face, 'bunx', -500, 500).name("Bun Spacing");
+  bunsMenu.add(face, 'buny', -500, 500).name("Bun Y-Position");
+  bunsMenu.add(face, 'bunSize', 0, 20).name("Bun Size");
 
-  gui_head.add(face, 'mouthX', -500, 500).name("Mouth Width");
-  gui_head.add(face, 'mouthY', -500, 500).name("Mouth Y-Position");
-  gui_head.add(face, 'mouthCx', -500, 500).name("Cheekiness");
-  gui_head.add(face, 'mouthCy', -500, 500).name("Smile Intensity");
+  let hairMenu = gui.addFolder('Hair');
+  hairMenu.add(face, 'hairk', 0, 25).name("Hair Fullness");
+  hairMenu.add(face, 'hairstr', 0.1, 5).name("Strand Thickness");
+  hairMenu.add(face, 'hairl', -500, 500).name("Hair Length");
 
-  gui_head.add(face, 'noseX', 0, 250).name("Nose Base Width");
-  gui_head.add(face, 'noseY', -250, 250).name("Nose Y-Position");
-  gui_head.add(face, 'noseCx', 0, 250).name("Nose Width");
-  gui_head.add(face, 'noseCy', -250, 250).name("Nose Length");
+  let eyesMenu = gui.addFolder('Eyes');
+  eyesMenu.add(face, 'espac', -500, 500).name("Eye Spacing");
+  eyesMenu.add(face, 'eypos', -500, 500).name("Eyes Y-Position");
+  eyesMenu.add(face, 'ew', 0, 100).name("Eye Width");
+  eyesMenu.add(face, 'eh', 0, 100).name("Eye Height");
+  eyesMenu.add(face, 'p', 0, 100).name("Pupils Size");
 
-  gui_head.add(face, 'chSpacing', 0, 500).name("Cheeks Spacing");
-  gui_head.add(face, 'chYpos', -500, 500).name("Cheeks Y-Position");
-  gui_head.add(face, 'ch', 0, 500).name("Cheeks Size");
+  let mouthMenu = gui.addFolder('Mouth');
+  mouthMenu.add(face, 'mouthX', -500, 500).name("Mouth Width");
+  mouthMenu.add(face, 'mouthY', -500, 500).name("Mouth Y-Position");
+  mouthMenu.add(face, 'mouthCx', -500, 500).name("Cheekiness");
+  mouthMenu.add(face, 'mouthCy', -500, 500).name("Smile Intensity");
+
+  let noseMenu = gui.addFolder('Nose');
+  noseMenu.add(face, 'noseX', 0, 250).name("Nose Base Width");
+  noseMenu.add(face, 'noseY', -250, 250).name("Nose Y-Position");
+  noseMenu.add(face, 'noseCx', 0, 250).name("Nose Width");
+  noseMenu.add(face, 'noseCy', -250, 250).name("Nose Length");
+
+  let cheeksMenu = gui.addFolder('Cheeks');
+  cheeksMenu.add(face, 'chSpacing', 0, 500).name("Cheeks Spacing");
+  cheeksMenu.add(face, 'chYpos', -500, 500).name("Cheeks Y-Position");
+  cheeksMenu.add(face, 'ch', 0, 500).name("Cheeks Size");
 }
