@@ -1,9 +1,8 @@
-let face;
-let palette;
-var gui_head;
+let face, palette, gui_head;
+let renderer;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  renderer = createCanvas(windowWidth, windowHeight, SVG);
   face = new Face();
   palette = new Colors();
   createGUI();
@@ -12,47 +11,51 @@ function setup() {
 // Resizes the canvas responsively
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  button.position(windowWidth / 2 - 100, windowHeight / 2 + 250);
 }
 
 function draw() {
+  renderer.drawingContext.__clearCanvas();
   background(palette.backgroundColor);
+  drawFace();
+}
 
+function drawFace() {
   strokeWeight(palette.strokeWeight);
   stroke(0);
   fill(palette.hairColor);
   for (i = face.bunSize; i > 0; i = i - face.hairstr) {
-    ellipse(windowWidth / 2 - face.hsx - face.bunx,
-      windowHeight / 2 - face.buny,
+    ellipse(width / 2 - face.hsx - face.bunx,
+      height / 2 - face.buny,
       i * i, i * i);
-    ellipse(windowWidth / 2 + face.hsx + face.bunx,
-      windowHeight / 2 - face.buny,
+    ellipse(width / 2 + face.hsx + face.bunx,
+      height / 2 - face.buny,
       i * i, i * i);
   }
 
-
   fill(palette.skinColor);
-  bezier(windowWidth / 2 - face.hsx, windowHeight / 2 + face.hsy,
-    windowWidth / 2 - face.hcp1x / 10, windowHeight / 2 - windowHeight / 7,
-    windowWidth / 2 + face.hcp1x / 10, windowHeight / 2 - windowHeight / 7,
-    windowWidth / 2 + face.hsx, windowHeight / 2 + face.hsy);
+  bezier(width / 2 - face.hsx, height / 2 + face.hsy,
+    width / 2 - face.hcp1x / 10, height / 2 - height / 7,
+    width / 2 + face.hcp1x / 10, height / 2 - height / 7,
+    width / 2 + face.hsx, height / 2 + face.hsy);
 
-  bezier(windowWidth / 2 - face.hsx, windowHeight / 2 + face.hsy,
-    windowWidth / 2 - face.hcp1x, windowHeight / 2 + face.hcp1y,
-    windowWidth / 2 + face.hcp1x, windowHeight / 2 + face.hcp1y,
-    windowWidth / 2 + face.hsx, windowHeight / 2 + face.hsy);
+  bezier(width / 2 - face.hsx, height / 2 + face.hsy,
+    width / 2 - face.hcp1x, height / 2 + face.hcp1y,
+    width / 2 + face.hcp1x, height / 2 + face.hcp1y,
+    width / 2 + face.hsx, height / 2 + face.hsy);
 
 
   fill(palette.cheeksColor);
-  ellipse(windowWidth / 2 - face.hsx + face.chSpacing, windowHeight / 2 + face.chYpos, face.ch, face.ch);
-  ellipse(windowWidth / 2 + face.hsx - face.chSpacing, windowHeight / 2 + face.chYpos, face.ch, face.ch);
+  ellipse(width / 2 - face.hsx + face.chSpacing, height / 2 + face.chYpos, face.ch, face.ch);
+  ellipse(width / 2 + face.hsx - face.chSpacing, height / 2 + face.chYpos, face.ch, face.ch);
 
   fill(255);
-  ellipse(windowWidth / 2 - face.espac, windowHeight / 2 + face.eypos, face.ew, face.eh);
-  ellipse(windowWidth / 2 + face.espac, windowHeight / 2 + face.eypos, face.ew, face.eh);
+  ellipse(width / 2 - face.espac, height / 2 + face.eypos, face.ew, face.eh);
+  ellipse(width / 2 + face.espac, height / 2 + face.eypos, face.ew, face.eh);
 
   fill(palette.eyeColor);
-  ellipse(windowWidth / 2 - face.espac, windowHeight / 2 + face.eypos, face.p, face.p);
-  ellipse(windowWidth / 2 + face.espac, windowHeight / 2 + face.eypos, face.p, face.p);
+  ellipse(width / 2 - face.espac, height / 2 + face.eypos, face.p, face.p);
+  ellipse(width / 2 + face.espac, height / 2 + face.eypos, face.p, face.p);
 
   makeHair();
 
@@ -61,27 +64,27 @@ function draw() {
     strokeWeight(5);
   }
   stroke((palette.skinColor[0] - 45), (palette.skinColor[1] - 45), (palette.skinColor[2] - 45));
-  bezier(windowWidth / 2 - face.mouthX, windowHeight / 2 + face.mouthY,
-    windowWidth / 2 - face.mouthCx, windowHeight / 2 + face.mouthCy,
-    windowWidth / 2 + face.mouthCx, windowHeight / 2 + face.mouthCy,
-    windowWidth / 2 + face.mouthX, windowHeight / 2 + face.mouthY);
+  bezier(width / 2 - face.mouthX, height / 2 + face.mouthY,
+    width / 2 - face.mouthCx, height / 2 + face.mouthCy,
+    width / 2 + face.mouthCx, height / 2 + face.mouthCy,
+    width / 2 + face.mouthX, height / 2 + face.mouthY);
 
-  bezier(windowWidth / 2 - face.noseX, windowHeight / 2 + face.noseY,
-    windowWidth / 2 - face.noseCx, windowHeight / 2 + face.noseCy,
-    windowWidth / 2 + face.noseCx, windowHeight / 2 + face.noseCy,
-    windowWidth / 2 + face.noseX, windowHeight / 2 + face.noseY);
+  bezier(width / 2 - face.noseX, height / 2 + face.noseY,
+    width / 2 - face.noseCx, height / 2 + face.noseCy,
+    width / 2 + face.noseCx, height / 2 + face.noseCy,
+    width / 2 + face.noseX, height / 2 + face.noseY);
 
   stroke(0);
   strokeWeight(palette.strokeWeight);
-  bezier(windowWidth / 2 - face.mouthX, windowHeight / 2 + face.mouthY,
-    windowWidth / 2 - face.mouthCx, windowHeight / 2 + face.mouthCy,
-    windowWidth / 2 + face.mouthCx, windowHeight / 2 + face.mouthCy,
-    windowWidth / 2 + face.mouthX, windowHeight / 2 + face.mouthY);
+  bezier(width / 2 - face.mouthX, height / 2 + face.mouthY,
+    width / 2 - face.mouthCx, height / 2 + face.mouthCy,
+    width / 2 + face.mouthCx, height / 2 + face.mouthCy,
+    width / 2 + face.mouthX, height / 2 + face.mouthY);
 
-  bezier(windowWidth / 2 - face.noseX, windowHeight / 2 + face.noseY,
-    windowWidth / 2 - face.noseCx, windowHeight / 2 + face.noseCy,
-    windowWidth / 2 + face.noseCx, windowHeight / 2 + face.noseCy,
-    windowWidth / 2 + face.noseX, windowHeight / 2 + face.noseY);
+  bezier(width / 2 - face.noseX, height / 2 + face.noseY,
+    width / 2 - face.noseCx, height / 2 + face.noseCy,
+    width / 2 + face.noseCx, height / 2 + face.noseCy,
+    width / 2 + face.noseX, height / 2 + face.noseY);
 }
 
 function makeHair() {
@@ -91,8 +94,8 @@ function makeHair() {
     if (i >= face.hairk - 1) {
       noFill();
     }
-    bezier(windowWidth / 2 - face.hsx, windowHeight / 2 + i * face.hairl, width / 2 - face.hsx, windowHeight / 4 + i * i, windowWidth / 2, windowHeight / 2.5, windowWidth / 2, windowHeight / 2 - windowHeight / 8 + face.hairln);
-    bezier(windowWidth / 2 + face.hsx, windowHeight / 2 + i * face.hairl, width / 2 + face.hsx, windowHeight / 4 + i * i, windowWidth / 2, windowHeight / 2.5, windowWidth / 2, windowHeight / 2 - windowHeight / 8 + face.hairln);
+    bezier(width / 2 - face.hsx, height / 2 + i * face.hairl, width / 2 - face.hsx, height / 4 + i * i, width / 2, height / 2.5, width / 2, height / 2 - height / 8 + face.hairln);
+    bezier(width / 2 + face.hsx, height / 2 + i * face.hairl, width / 2 + face.hsx, height / 4 + i * i, width / 2, height / 2.5, width / 2, height / 2 - height / 8 + face.hairln);
   }
 }
 
@@ -147,12 +150,12 @@ function createGUI() {
 
 
   let colorsMenu = gui.addFolder('Colors');
-  colorsMenu.addColor(palette, 'backgroundColor').name("Background Color");
+  colorsMenu.addColor(palette, 'backgroundColor').name("Background");
   colorsMenu.addColor(palette, 'skinColor').name("Skin Color");
   colorsMenu.addColor(palette, 'hairColor').name("Hair Color");
   colorsMenu.addColor(palette, 'eyeColor').name("Eye Color");
   colorsMenu.addColor(palette, 'cheeksColor').name("Cheeks Color");
-  colorsMenu.add(palette, 'strokeWeight', 0, 10);
+  colorsMenu.add(palette, 'strokeWeight', 0, 10).step(1);
 
   let faceMenu = gui.addFolder('Face Shape');
   faceMenu.add(face, 'hsx', 0, 500).name("Forehead Width");
@@ -193,4 +196,11 @@ function createGUI() {
   cheeksMenu.add(face, 'chSpacing', 0, 500).name("Cheeks Spacing");
   cheeksMenu.add(face, 'chYpos', -500, 500).name("Cheeks Y-Position");
   cheeksMenu.add(face, 'ch', 0, 500).name("Cheeks Size");
+}
+
+function keyPressed() {
+  if (key === 's') {
+    save("mySVG.svg");
+    print("saved svg");
+  }
 }
