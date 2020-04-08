@@ -1,18 +1,18 @@
 let face, palette, gui_head;
 let renderer;
+let button;
 
 function setup() {
   renderer = createCanvas(windowWidth, windowHeight, SVG);
   face = new Face();
   palette = new Colors();
-  randomizeFace();
   createGUI();
+  randomizeFace();
 }
 
 // Resizes the canvas responsively
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  button.position(windowWidth / 2 - 100, windowHeight / 2 + 250);
 }
 
 function draw() {
@@ -22,9 +22,17 @@ function draw() {
 }
 
 function drawFace() {
+  fill(0)
   strokeWeight(palette.strokeWeight);
-  stroke(0);
   fill(palette.hairColor);
+  for (i = face.bunSize; i > 0; i = i - face.hairstr) {
+    ellipse(width / 2 - face.hsx - face.bunx,
+      height / 2 - face.buny,
+      i * i, i * i);
+    ellipse(width / 2 + face.hsx + face.bunx,
+      height / 2 - face.buny,
+      i * i, i * i);
+  }
   for (i = face.bunSize; i > 0; i = i - face.hairstr) {
     ellipse(width / 2 - face.hsx - face.bunx,
       height / 2 - face.buny,
@@ -61,7 +69,7 @@ function drawFace() {
   makeHair();
 
   noFill();
-  if (palette.strokeWeight <= 5) {
+  if (palette.strokeWeight < 1) {
     strokeWeight(5);
   }
   stroke((palette.skinColor[0] - 45), (palette.skinColor[1] - 45), (palette.skinColor[2] - 45));
@@ -140,9 +148,9 @@ function Face() {
 }
 
 function randomizeFace() {
-  face.hsx = random(145, 267);
-  face.hcp1x = random(0, 500);
-  face.hcp1y = random(225, 400);
+  face.hsx = random(145, 200);
+  face.hcp1x = random(0, 300);
+  face.hcp1y = random(190, 230);
 
   face.buny = random(-face.hcp1y / 2, 120);
   face.bunx = random(-150, face.bunSize * 2);
@@ -163,9 +171,9 @@ function randomizeFace() {
   face.chYpos = random(face.hcp1y / 4, face.hcp1y / 2);
   face.ch = random(0, 65);
 
-  face.mouthX = random(15, face.hcp1x/3);
+  face.mouthX = random(15, face.hcp1x / 3);
   face.mouthY = random(125, 150);
-  face.mouthCx = random(250/6, 250/4);
+  face.mouthCx = random(250 / 6, 250 / 4);
   face.mouthCy = random(125, 160);
 
   face.noseX = random(10, 25);
@@ -173,7 +181,6 @@ function randomizeFace() {
   face.noseCx = random(5, 120);
   face.noseCy = random(0, 125);
 
-  palette.backgroundColor = [random(255), random(255), random(255)];
   palette.hairColor = [random(255), random(255), random(255)];
   palette.skinColor = [random(255), random(255), random(255)];
   palette.eyeColor = [random(255), random(255), random(255)];
@@ -181,12 +188,12 @@ function randomizeFace() {
 }
 
 function Colors() {
-  this.backgroundColor = [190, 153, 153];
+  this.backgroundColor = [255, 255, 255];
   this.hairColor = [41, 47, 58];
   this.skinColor = [217, 191, 143];
   this.eyeColor = [10, 20, 20];
   this.cheeksColor = [245, 42, 105];
-  this.strokeWeight = 4;
+  this.strokeWeight = 0;
 }
 
 function createGUI() {
