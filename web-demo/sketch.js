@@ -148,9 +148,9 @@ function Face() {
 }
 
 function randomizeFace() {
-  face.hsx = random(145, 200);
-  face.hcp1x = random(0, 300);
-  face.hcp1y = random(190, 230);
+  face.hsx = random(145, 400);
+  face.hcp1x = random(0, 400);
+  face.hcp1y = random(190, 400);
 
   face.buny = random(-face.hcp1y / 2, 120);
   face.bunx = random(-150, face.bunSize * 2);
@@ -181,19 +181,19 @@ function randomizeFace() {
   face.noseCx = random(5, 120);
   face.noseCy = random(0, 125);
 
-  palette.hairColor = [random(255), random(255), random(255)];
-  palette.skinColor = [random(255), random(255), random(255)];
-  palette.eyeColor = [random(255), random(255), random(255)];
-  palette.cheeksColor = [random(255), random(255), random(255)];
+  palette.hairColor = [0, 0, 0, 255];
+  palette.skinColor =  [255, 255, 255];
+  palette.eyeColor = [0, 0, 0, 255];
+  palette.cheeksColor = [255, 255, 255];
 }
 
 function Colors() {
   this.backgroundColor = [255, 255, 255];
-  this.hairColor = [41, 47, 58];
-  this.skinColor = [217, 191, 143];
-  this.eyeColor = [10, 20, 20];
-  this.cheeksColor = [245, 42, 105];
-  this.strokeWeight = 0;
+  this.hairColor = [255, 255, 255];
+  this.skinColor = [255, 255, 255];
+  this.eyeColor = [255, 255, 255];
+  this.cheeksColor = [255, 255, 255];
+  this.strokeWeight = 1;
 }
 
 function createGUI() {
