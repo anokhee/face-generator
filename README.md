@@ -1,5 +1,7 @@
 ## Visual Synthesizer (WIP)
 
+Visual style was inspired <a href="https://github.com/aleksimyllyoja/jack-of-diamonds">by this project by Aleksi Myllyoja.</a>
+
 ##### Raspberry Pi Output
 <img width="75%" src="imgs/faces-all-v1.png">
 
