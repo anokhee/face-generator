@@ -33,14 +33,6 @@ function drawFace() {
       height / 2 - face.buny,
       i * i, i * i);
   }
-  for (i = face.bunSize; i > 0; i = i - face.hairstr) {
-    ellipse(width / 2 - face.hsx - face.bunx,
-      height / 2 - face.buny,
-      i * i, i * i);
-    ellipse(width / 2 + face.hsx + face.bunx,
-      height / 2 - face.buny,
-      i * i, i * i);
-  }
 
   fill(palette.skinColor);
   bezier(width / 2 - face.hsx, height / 2 + face.hsy,
@@ -177,7 +169,7 @@ function randomizeFace() {
   face.mouthCy = random(125, 160);
 
   face.noseX = random(10, 25);
-  face.noseY - random(90, 140);
+  face.noseY = random(90, 140);
   face.noseCx = random(5, 120);
   face.noseCy = random(0, 125);
 
