@@ -1,4 +1,4 @@
-## Visual Synthesizer (WIP)
+## Face Generator
 
 Visual style was inspired <a href="https://github.com/aleksimyllyoja/jack-of-diamonds">by this project by Aleksi Myllyoja.</a>
 
