@@ -31,14 +31,6 @@ function drawFace() {
       0 - face.buny,
       i * i, i * i);
   }
-  for (i = face.bunSize; i > 0; i = i - face.hairstr) {
-    ellipse(0 - face.hsx - face.bunx,
-      0 - face.buny,
-      i * i, i * i);
-    ellipse(0 + face.hsx + face.bunx,
-      0 - face.buny,
-      i * i, i * i);
-  }
 
   fill(palette.skinColor);
   bezier(0 - face.hsx, 0 + face.hsy + 10,
