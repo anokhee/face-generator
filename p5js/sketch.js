@@ -2,12 +2,15 @@ let face, palette, gui_head;
 let renderer;
 let button;
 let mult = 1;
+let s = 1;
+let off = 55;
 
 function setup() {
   renderer = createCanvas(windowWidth, windowHeight, SVG);
   face = new Face();
   palette = new Colors();
   createGUI();
+  randomizeFace();
 }
 
 // Resizes the canvas responsively
@@ -21,47 +24,47 @@ function drawFace() {
   strokeWeight(palette.strokeWeight);
   fill(palette.hairColor);
   for (i = face.bunSize; i > 0; i = i - face.hairstr) {
-    ellipse(width / 2 - face.hsx - face.bunx,
-      height / 2 - face.buny,
+    ellipse(0 - face.hsx - face.bunx,
+      0 - face.buny,
       i * i, i * i);
-    ellipse(width / 2 + face.hsx + face.bunx,
-      height / 2 - face.buny,
+    ellipse(0 + face.hsx + face.bunx,
+      0 - face.buny,
       i * i, i * i);
   }
   for (i = face.bunSize; i > 0; i = i - face.hairstr) {
-    ellipse(width / 2 - face.hsx - face.bunx,
-      height / 2 - face.buny,
+    ellipse(0 - face.hsx - face.bunx,
+      0 - face.buny,
       i * i, i * i);
-    ellipse(width / 2 + face.hsx + face.bunx,
-      height / 2 - face.buny,
+    ellipse(0 + face.hsx + face.bunx,
+      0 - face.buny,
       i * i, i * i);
   }
 
   fill(palette.skinColor);
-  bezier(width / 2 - face.hsx, height / 2 + face.hsy + 10,
-    width / 2 - face.hcp1x / 10, height / 2 - height / 7,
-    width / 2 + face.hcp1x / 10, height / 2 - height / 7,
-    width / 2 + face.hsx, height / 2 + face.hsy + 10);
+  bezier(0 - face.hsx, 0 + face.hsy + 10,
+    0 - face.hcp1x / 10, 0 - height / 7,
+    0 + face.hcp1x / 10, 0 - height / 7,
+    0 + face.hsx, 0 + face.hsy + 10);
 
-  bezier(width / 2 - face.hsx, height / 2 + face.hsy,
-    width / 2 - face.hcp1x, height / 2 + face.hcp1y,
-    width / 2 + face.hcp1x, height / 2 + face.hcp1y,
-    width / 2 + face.hsx, height / 2 + face.hsy);
+  bezier(0 - face.hsx, 0 + face.hsy,
+    0 - face.hcp1x, 0 + face.hcp1y,
+    0 + face.hcp1x, 0 + face.hcp1y,
+    0 + face.hsx, 0 + face.hsy);
 
 
   noStroke();
   fill(palette.cheeksColor);
-  ellipse(width / 2 - face.hsx + face.chSpacing, height / 2 + face.chYpos, face.ch, face.ch);
-  ellipse(width / 2 + face.hsx - face.chSpacing, height / 2 + face.chYpos, face.ch, face.ch);
+  ellipse(0 - face.hsx + face.chSpacing, 0 + face.chYpos, face.ch, face.ch);
+  ellipse(0 + face.hsx - face.chSpacing, 0 + face.chYpos, face.ch, face.ch);
 
   stroke(palette.strokeWeight);
   fill(255);
-  ellipse(width / 2 - face.espac, height / 2 + face.eypos, face.ew, face.eh);
-  ellipse(width / 2 + face.espac, height / 2 + face.eypos, face.ew, face.eh);
+  ellipse(0 - face.espac, 0 + face.eypos, face.ew, face.eh);
+  ellipse(0 + face.espac, 0 + face.eypos, face.ew, face.eh);
 
   fill(palette.eyeColor);
-  ellipse(width / 2 - face.espac, height / 2 + face.eypos, face.p, face.p);
-  ellipse(width / 2 + face.espac, height / 2 + face.eypos, face.p, face.p);
+  ellipse(0 - face.espac, 0 + face.eypos, face.p, face.p);
+  ellipse(0 + face.espac, 0 + face.eypos, face.p, face.p);
 
   makeHair();
 
@@ -70,29 +73,29 @@ function drawFace() {
     strokeWeight(5);
   }
   stroke((palette.skinColor[0] - 45), (palette.skinColor[1] - 45), (palette.skinColor[2] - 45));
-  bezier(width / 2 - face.mouthX, height / 2 + face.mouthY,
-    width / 2 - face.mouthCx, height / 2 + face.mouthCy,
-    width / 2 + face.mouthCx, height / 2 + face.mouthCy,
-    width / 2 + face.mouthX, height / 2 + face.mouthY);
+  bezier(0 - face.mouthX, 0 + face.mouthY,
+    0 - face.mouthCx, 0 + face.mouthCy,
+    0 + face.mouthCx, 0 + face.mouthCy,
+    0 + face.mouthX, 0 + face.mouthY);
 
   fill(palette.skinColor);
-  bezier(width / 2 - face.noseX, height / 2 + face.noseY,
-    width / 2 - face.noseCx, height / 2 + face.noseCy,
-    width / 2 + face.noseCx, height / 2 + face.noseCy,
-    width / 2 + face.noseX, height / 2 + face.noseY);
+  bezier(0 - face.noseX, 0 + face.noseY,
+    0 - face.noseCx, 0 + face.noseCy,
+    0 + face.noseCx, 0 + face.noseCy,
+    0 + face.noseX, 0 + face.noseY);
 
   noFill();
   stroke(0);
   strokeWeight(palette.strokeWeight);
-  bezier(width / 2 - face.mouthX, height / 2 + face.mouthY,
-    width / 2 - face.mouthCx, height / 2 + face.mouthCy,
-    width / 2 + face.mouthCx, height / 2 + face.mouthCy,
-    width / 2 + face.mouthX, height / 2 + face.mouthY);
+  bezier(0 - face.mouthX, 0 + face.mouthY,
+    0 - face.mouthCx, 0 + face.mouthCy,
+    0 + face.mouthCx, 0 + face.mouthCy,
+    0 + face.mouthX, 0 + face.mouthY);
 
-  bezier(width / 2 - face.noseX, height / 2 + face.noseY,
-    width / 2 - face.noseCx, height / 2 + face.noseCy,
-    width / 2 + face.noseCx, height / 2 + face.noseCy,
-    width / 2 + face.noseX, height / 2 + face.noseY);
+  bezier(0 - face.noseX, 0 + face.noseY,
+    0 - face.noseCx, 0 + face.noseCy,
+    0 + face.noseCx, 0 + face.noseCy,
+    0 + face.noseX, 0 + face.noseY);
 
   scale(10);
 }
@@ -101,11 +104,11 @@ function makeHair() {
   noFill();
   for (i = 0; i <= face.hairk; i = i + face.hairstr) {
     fill(palette.hairColor);
-    if (i >= face.hairk / 2) {
+    if (i >= face.hairk - 1) {
       noFill();
     }
-    bezier(width / 2 - face.hsx, height / 2 + i * face.hairl, width / 2 - face.hsx, height / 4 + i * i, width / 2, height / 2.5, width / 2, height / 2 - height / 8 + face.hairln);
-    bezier(width / 2 + face.hsx, height / 2 + i * face.hairl, width / 2 + face.hsx, height / 4 + i * i, width / 2, height / 2.5, width / 2, height / 2 - height / 8 + face.hairln);
+    bezier(-face.hsx, (height / 2 + i * face.hairl) - height / 2, -face.hsx, height / 4 - height / 2 + i * i, 0, height / 2.5 - height / 2, 0, -height / 8 + face.hairln);
+    bezier(face.hsx, (height / 2 + i * face.hairl) - height / 2, face.hsx, height / 4 - height / 2 + i * i, 0, height / 2.5 - height / 2, 0, -height / 8 + face.hairln);
   }
 }
 
@@ -150,7 +153,7 @@ function randomizeFace() {
   let rand = Math.random();
   console.log(rand);
 
-  face.hsx = random(140 * mult, 200 * mult);
+  face.hsx = random(140 * mult, 220 * mult);
   face.hcp1x = random(120 * mult, 300 * mult);
   face.hcp1y = random(210 * mult, 350 * mult);
 
@@ -158,19 +161,19 @@ function randomizeFace() {
   face.bunx = random(-100, (face.bunSize * 2));
   face.bunSize = random(6, 15);
 
-  face.hairk = random(3, 5);
+  face.hairk = random(2, 5);
   face.hairstr = random(1.5, 3);
   face.hairl = random(0 * mult, 45 * mult);
 
   face.espac = random((face.espac / 2), (face.hsx));
   face.eypos = random(0, (face.hcp1y / 3.5));
-  face.ew = random(45 * mult , 110 * mult);
+  face.ew = random(45 * mult, 110 * mult);
   face.eh = face.ew - random(90 * mult, 150 * mult);
 
   face.p = random((face.eh / 4), (face.eh / 2));
 
   face.chSpacing = random(40, 60);
-  face.chYpos = random((face.hcp1y/4), (face.hcp1y/2));
+  face.chYpos = random((face.hcp1y / 4), (face.hcp1y / 2));
   face.ch = random(30 * mult, 80 * mult);
 
   face.mouthX = random(15, (face.hcp1x / 3));
@@ -190,11 +193,11 @@ function randomizeFace() {
 }
 
 function Colors() {
-  this.backgroundColor = [250, 150, 250];
+  this.backgroundColor = [255, 255, 255];
   this.hairColor = [255, 255, 255];
   this.skinColor = [255, 255, 255, 0];
   this.eyeColor = [255, 255, 255];
-  this.cheeksColor = [255, 255, 255];
+  this.cheeksColor = [150, 150, 150];
   this.strokeWeight = 10;
 }
 
@@ -261,11 +264,12 @@ function draw() {
 
 
   for (p = 1; p < 20; p++) {
-    for (q = 1; q < 11; q++) {
+    for (q = 1; q < 20; q++) {
+      scale(s);
       randomizeFace();
-      translate(p * 60 * mult, q * 60 * mult);
+      translate(p * mult * off, q * mult * off);
       drawFace();
-      translate(-p * 60 * mult, -q * 60 * mult);
+      translate(-p * mult * off, -q * mult * off);
     }
   }
   noLoop();
