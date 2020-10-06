@@ -1,7 +1,7 @@
 let face, palette, gui_head;
 let renderer;
 let button;
-let mult = .9;
+let mult = 1;
 
 function setup() {
   renderer = createCanvas(windowWidth, windowHeight, SVG);
@@ -150,24 +150,24 @@ function randomizeFace() {
   let rand = Math.random();
   console.log(rand);
 
-  face.hsx = random(150 * mult, 200 * mult);
-  face.hcp1x = random(150 * mult, 300 * mult);
-  face.hcp1y = random(200 * mult, 350 * mult);
+  face.hsx = random(140 * mult, 200 * mult);
+  face.hcp1x = random(120 * mult, 300 * mult);
+  face.hcp1y = random(210 * mult, 350 * mult);
 
   face.buny = random((-face.hcp1y / 2), 50);
-  face.bunx = random(-150, (face.bunSize * 2));
+  face.bunx = random(-100, (face.bunSize * 2));
   face.bunSize = random(6, 15);
 
-  face.hairk = random(5, 10);
+  face.hairk = random(3, 5);
   face.hairstr = random(1.5, 3);
-  face.hairl = random(-22 * mult, 33 * mult);
+  face.hairl = random(0 * mult, 45 * mult);
 
-  face.espac = random((face.espac / 2), (face.hsx - 30));
+  face.espac = random((face.espac / 2), (face.hsx));
   face.eypos = random(0, (face.hcp1y / 3.5));
-  face.ew = random(20 * mult , 80 * mult);
-  face.eh = face.ew - random(20 * mult, 80 * mult);
+  face.ew = random(45 * mult , 110 * mult);
+  face.eh = face.ew - random(90 * mult, 150 * mult);
 
-  face.p = random((face.eh / 4), (face.eh / 1.5));
+  face.p = random((face.eh / 4), (face.eh / 2));
 
   face.chSpacing = random(40, 60);
   face.chYpos = random((face.hcp1y/4), (face.hcp1y/2));
@@ -183,14 +183,14 @@ function randomizeFace() {
   face.noseCx = random(5 * mult, 120 * mult);
   face.noseCy = random(0 * mult, 125 * mult);
 
-  palette.skinColor = [random(85, 255)];
-  palette.hairColor = [random(85, 255)];
-  palette.eyeColor = [0, 0, 0, random(255)];
+  palette.skinColor = [random(55, 255)];
+  palette.hairColor = [random(10, 255)];
+  palette.eyeColor = [0, 0, 0, random(100, 255)];
   palette.cheeksColor = [0, 0, 0, random(0, 50)];
 }
 
 function Colors() {
-  this.backgroundColor = [240, 183, 140];
+  this.backgroundColor = [250, 150, 250];
   this.hairColor = [255, 255, 255];
   this.skinColor = [255, 255, 255, 0];
   this.eyeColor = [255, 255, 255];
@@ -260,8 +260,8 @@ function draw() {
   background(palette.backgroundColor);
 
 
-  for (p = 1; p < 12; p++) {
-    for (q = 1; q < 10; q++) {
+  for (p = 1; p < 20; p++) {
+    for (q = 1; q < 11; q++) {
       randomizeFace();
       translate(p * 60 * mult, q * 60 * mult);
       drawFace();

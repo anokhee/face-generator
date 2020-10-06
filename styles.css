@@ -1,0 +1,140 @@
+.container {
+    display: flex;
+}
+
+.canvas-container {
+    align-items: center;
+    display: flex;
+    position: relative;
+    height: 100vh;
+    justify-content: center;
+    width: 60%;
+}
+
+#ui-container {
+    background-color: #fefefe;
+    border-radius: 25px 25px 0px 0px;
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+}
+
+.sliders-container {
+    display: block;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 6%;
+    width: 95%;
+}
+
+.slide-container {
+    align-items: center;
+    background-color: hsl(0, 18%, 90%);
+    display: flex;
+    height: 90px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.sliders-min-max-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.slider {
+    cursor: pointer;
+    width: 400px;
+}
+
+.slider-icon {
+    width: 60px;
+}
+
+.submenu-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.submenu-btn {
+    width: 100px;
+    height: 100px;
+    background-color: #F26D6D;
+    border: 0px solid black;
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.select-hairstyle-btn {
+    color: #fff;
+    font-family: monospace;
+    background-color: #7F7FC1;
+    border: 0px solid #000000;
+    height: 60px;
+    width: 50%;
+    margin: 5px;
+}
+
+.tabs-container {
+    background-color: hsl(55, 70%, 70%);
+    border-radius: 25px 25px 0px 0px;
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 25%;
+    opacity: 50%;
+}
+
+.current {
+    opacity: 100%;
+}
+
+
+.selected-submenu-tab {
+    background-color: #e6d200;
+}
+
+.tl { 
+    border-radius: 25px 0px 0px 0px;
+}
+
+.tab-icon {
+    width: 55px;
+    height: auto;
+}
+
+.tab:hover, .submenu-btn:hover, .select-hairstyle-btn:hover {
+    opacity: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        display: block;
+    }
+
+    #ui-container {
+        position: absolute;
+        margin-top: 0%;
+        width: 100vw;
+        height: 100vh;
+        padding-bottom: 8%;
+    }
+
+    .canvas-container {
+        height: 50vh;
+        width: 100vw;
+    }
+}
