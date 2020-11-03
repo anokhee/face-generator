@@ -1,13 +1,5 @@
-## Face Generator
+# WIP
 
-Visual style was inspired <a href="https://github.com/aleksimyllyoja/jack-of-diamonds">by this project by Aleksi Myllyoja.</a>
-
-##### Raspberry Pi Output
-<img width="75%" src="imgs/faces-all-v1.png">
-
-<a href="https://vimeo.com/361013641">Click here to view a demo.</a>
-
-<hr> 
-
-##### Responsive Web Output
-<img width="75%" src="imgs/faces-all-v2.png">
+Hello, I am currently working on a Vanilla JS version of this project. If you are here from my Reddit post, that project has been moved to a different folder.
+<br><br>
+You can find all the code files for the <a href="https://github.com/anokhee/face-generator/tree/master/p5js">p5.js version inside this folder</a>. 
