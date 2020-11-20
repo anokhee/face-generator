@@ -47,5 +47,5 @@ function Palette() {
     this.pupilsColor = `rgba(1, 1, 1, 1)`;
     this.eyeColor = `rgba(255, 255, 255, 1)`;
     this.cheeksColor = `rgba(230, 230, 230, 1)`;
-    this.backgroundColor = `rgba(235, 235, 220, 1)`;
+    this.backgroundColor = `rgba(225, 225, 225, 1)`;
 }

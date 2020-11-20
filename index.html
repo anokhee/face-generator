@@ -19,149 +19,46 @@
         <div id="ui-container">
             <div class="tabs-container">
                 <div class="tab current tl"><img class="tab-icon" src="./icons/head-shape.svg"></div>
-                <div class="tab"><img class="tab-icon" src="./icons/hairstyle.svg"></div>
-                <div class="tab"><img class="tab-icon" src="./icons/facial-features.svg"></div>
-                <div class="tab tr"><img class="tab-icon" src="./icons/color-palette.svg"></div>
+                <div class="tab"><img class="tab-icon not-selected" src="./icons/hairstyle.svg"></div>
+                <div class="tab"><img class="tab-icon not-selected" src="./icons/facial-features.svg"></div>
+                <div class="tab tr"><img class="tab-icon not-selected" src="./icons/color-palette.svg"></div>
             </div>
 
-            <div class="sliders-container">
-
-                <!-- HEAD SHAPE  -->
-                <div id="headshape-submenu">
-                    <div class="slide-container">
-                        <div>
-                            <div class="sliders-min-max-container">
-                                <img class="slider-icon" src="icons/head-shape/chin-width-min.svg">
-                                <img class="slider-icon" src="icons/head-shape/chin-width-max.svg">
-                            </div>
-                            <input type="range" min="-500" max="500" value="0" class="slider"
-                                oninput="face.hcpx = parseInt(value); console.log(value)">
+            <div id="head-shape-submenu">
+                <div class="slide-container">
+                    <div>
+                        <div class="sliders-min-max-container">
+                            <img class="slider-icon" src="icons/head-shape/forehead-width-min.svg">
+                            <img class="slider-icon" src="icons/head-shape/forehead-width-max.svg">
                         </div>
-                    </div>
-
-                    <div class="slide-container">
-                        <div>
-                            <div class="sliders-min-max-container">
-                                <img class="slider-icon" src="icons/head-shape/chin-height-min.svg">
-                                <img class="slider-icon" src="icons/head-shape/chin-height-max.svg">
-                            </div>
-                            <input type="range" min="-500" max="500" value="0" class="slider"
-                                oninput="face.hcpy = parseInt(value); console.log(value)">
-                        </div>
-                    </div>
-
-                    <div class="slide-container">
-                        <div>
-                            <div class="sliders-min-max-container">
-                                <img class="slider-icon" src="icons/head-shape/forehead-width-min.svg">
-                                <img class="slider-icon" src="icons/head-shape/forehead-width-max.svg">
-                            </div>
-                            <input type="range" min="0" max="500" value="0" class="slider"
-                                oninput="face.hsx = parseInt(value); console.log(value)">
-                        </div>
+                        <input id="forehead-width-slider" type="range" min="0" max="500" value="0" class="slider">
                     </div>
                 </div>
 
-                <!-- HAIRSTYLE -->
-                <div id="hairstyle-menu-item">
-                    <div class="submenu-container">
-                        <button class="submenu-btn" onclick=""><img
-                                src="./icons/hairstyles/choose-hairstyle-menu.svg"></button>
-                        <button class="submenu-btn" onclick=""><img
-                                src="./icons/hairstyles/choose-buns-menu.svg"></button>
+                <div class="slide-container">
+                    <div>
+                        <div class="sliders-min-max-container">
+                            <img class="slider-icon" src="icons/head-shape/cheeks-width-min.svg">
+                            <img class="slider-icon" src="icons/head-shape/cheeks-width-max.svg">
+                        </div>
+                        <input id="cheeks-width-slider" type="range" min="0" max="500" value="0" class="slider">
                     </div>
+                </div>
 
-                    <div id="hairstyle-submenu">
-                        <div class="submenu-container">
-                            <button class="select-hairstyle-btn"
-                                onclick="face.hairStyleLeft = 0; face.hairStyleRight = 0;">Hairstyle #1</button>
-                            <button class="select-hairstyle-btn"
-                                onclick="face.hairStyleLeft = 1; face.hairStyleRight = 1;">Hairstyle #2</button>
+                <div class="slide-container">
+                    <div>
+                        <div class="sliders-min-max-container">
+                            <img class="slider-icon" src="icons/head-shape/chin-height-min.svg">
+                            <img class="slider-icon" src="icons/head-shape/chin-height-max.svg">
                         </div>
-                        <div class="slide-container">
-                            <div>
-                                <div class="sliders-min-max-container">
-                                    <img class="slider-icon" src="icons/hairstyles/hair-fullness-min.svg">
-                                    <img class="slider-icon" src="icons/hairstyles/hair-fullness-max.svg">
-                                </div>
-                                <input type="range" min="0" max="25" value="0" class="slider"
-                                    oninput="face.hairk = parseInt(value); console.log(value)">
-                            </div>
-                        </div>
-
-                        <div class="slide-container">
-                            <div>
-                                <div class="sliders-min-max-container">
-                                    <img class="slider-icon" src="icons/hairstyles/strand-thickness-min.svg">
-                                    <img class="slider-icon" src="icons/hairstyles/strand-thickness-max.svg">
-                                </div>
-                                <input type="range" min="1" max="50" value="1" class="slider"
-                                    oninput="face.hairstr = parseInt(value) * .1; console.log(value)">
-                            </div>
-                        </div>
-
-                        <div class="slide-container">
-                            <div>
-                                <div class="sliders-min-max-container">
-                                    <img class="slider-icon" src="icons/hairstyles/hair-length-max.svg">
-                                    <img class="slider-icon" src="icons/hairstyles/hair-length-min.svg">
-                                </div>
-                                <input type="range" min="-500" max="500" value="1" class="slider"
-                                    oninput="face.hairl = parseInt(value); console.log(value)">
-                            </div>
-                        </div>
-
-                        <div class="slide-container">
-                            <div>
-                                <div class="sliders-min-max-container">
-                                    Hairline
-                                </div>
-                                <input type="range" min="-500" max="500" value="1" class="slider"
-                                    oninput="face.hairln = parseInt(value); console.log(value)">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- HAIR BUNS -->
-                    <div id="hairbuns-submenu">
-                        <div class="slide-container">
-                            <div>
-                                <div class="sliders-min-max-container">
-                                    <img class="slider-icon" src="icons/hairstyles/buns-xpos-min.svg">
-                                    <img class="slider-icon" src="icons/hairstyles/buns-xpos-max.svg">
-                                </div>
-                                <input type="range" min="-250" max="250" value="0" class="slider"
-                                    oninput="face.bunx = parseInt(value); console.log(value)">
-                            </div>
-                        </div>
-
-                        <div class="slide-container">
-                            <div>
-                                <div class="sliders-min-max-container">
-                                    <img class="slider-icon" src="icons/hairstyles/buns-ypos-min.svg">
-                                    <img class="slider-icon" src="icons/hairstyles/buns-ypos-max.svg">
-                                </div>
-                                <input type="range" min="-250" max="250" value="0" class="slider"
-                                    oninput="face.buny = parseInt(value); console.log(value)">
-                            </div>
-                        </div>
-
-                        <div class="slide-container">
-                            <div>
-                                <div class="sliders-min-max-container">
-                                    <img class="slider-icon" src="icons/hairstyles/bunsize-min.svg">
-                                    <img class="slider-icon" src="icons/hairstyles/bunsize-max.svg">
-                                </div>
-                                <input type="range" min="0" max="20" value="0" class="slider"
-                                    oninput="face.bunSize = parseInt(value); console.log(value)">
-                            </div>
-                        </div>
+                        <input id="chin-height-slider" type="range" min="0" max="500" value="0" class="slider">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="./canvas.js"></script>
+    <script src="./ui.js"></script>
 </body>
 
 </html>

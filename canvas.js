@@ -1,6 +1,6 @@
 const canvas = document.getElementById('canvas');
 const c = canvas.getContext("2d");
-width = 800
+width = 820
 height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
@@ -14,8 +14,7 @@ function setup() {
     c.clearRect(0, 0, canvas.width, canvas.height);
     face = new Face();
     palette = new Palette();
-    c.lineWidth = 1;
-    // c.strokeStyle = `rgba(0, 0, 0, 0)`;
+    c.lineWidth = 3;
     draw();
 };
 

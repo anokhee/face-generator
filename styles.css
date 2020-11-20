@@ -5,10 +5,9 @@
 .canvas-container {
     align-items: center;
     display: flex;
-    position: relative;
     height: 100vh;
     justify-content: center;
-    width: 60%;
+    width: 62%;
 }
 
 #ui-container {
@@ -16,25 +15,19 @@
     border-radius: 25px 25px 0px 0px;
     display: block;
     margin: 0 auto;
-    width: 40%;
-}
-
-.sliders-container {
-    display: block;
-    justify-content: center;
-    margin: 0 auto;
-    margin-bottom: 6%;
-    width: 95%;
+    width: 42%;
 }
 
 .slide-container {
     align-items: center;
-    background-color: hsl(0, 18%, 90%);
+    background-color: hsl(0, 60%, 90%);
     display: flex;
-    height: 100px;
+    height: 120px;
     justify-content: center;
-    margin-top: 10px;
-    padding: 2px;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 95%;
+    z-index: 999;
 }
 
 .sliders-min-max-container {
@@ -96,28 +89,35 @@
     justify-content: center;
     height: 100%;
     width: 25%;
-    opacity: 50%;
+    opacity: 100%;
 }
 
 .current {
     opacity: 100%;
-}
-
-
-.selected-submenu-tab {
     background-color: #e6d200;
 }
 
-.tl { 
+.current:hover {
+    background-color: #e8df7d;
+}
+
+.tl {
     border-radius: 25px 0px 0px 0px;
 }
 
 .tab-icon {
-    width: 55px;
     height: auto;
+    opacity: 100%;
+    width: 55px;
 }
 
-.tab:hover, .submenu-btn:hover, .select-hairstyle-btn:hover {
+.not-selected {
+    opacity: 50%;
+}
+
+.tab:hover,
+.submenu-btn:hover,
+.select-hairstyle-btn:hover {
     opacity: 50%;
 }
 
@@ -132,50 +132,68 @@
         width: 100vw;
         height: 100vh;
         padding-bottom: 8%;
+        top: 50%;
+        padding-top: 80px;
     }
 
     .canvas-container {
+        align-items: center;
+        display: flex;
         height: 50vh;
+        justify-content: center;
+        position: fixed;
         width: 100vw;
+        z-index: 999;
+    }
+
+    .tabs-container {
+        background-color: hsl(55, 70%, 70%);
+        border-radius: 25px 25px 0px 0px;
+        display: flex;
+        position: fixed;
+        justify-content: center;
+        height: 70px;
+        top: 50%;
+        width: 100%;
+        z-index: 999;
     }
 }
 
-
-.slide-container {
-    width: 100%; /* Width of the outside container */
-  }
-  
-  /* The slider itself */
-  .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;
     appearance: none;
-    width: 345px; /* Full-width */
-    height: 30px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    width: 380px;
+    height: 38px;
+    background: #ffffff;
+    opacity: 0.8;
+    -webkit-transition: .2s;
     transition: opacity .2s;
-  }
-  
-  /* Mouse-over effects */
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    margin-top: 10px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
     appearance: none;
-    width: 30px; /* Set a specific slider handle width */
-    height: 30px; /* Slider handle height */
-    background: #0065FF; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 30px; /* Set a specific slider handle width */
-    height: 30px; /* Slider handle height */
-    background: #0065FF; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
+    width: 38px;
+    height: 38px;
+    background: #0065FF;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 30px;
+    /* Set a specific slider handle width */
+    height: 30px;
+    /* Slider handle height */
+    background: #0065FF;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
