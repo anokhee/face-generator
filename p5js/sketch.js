@@ -1,8 +1,8 @@
 let face, palette, gui_head;
 let renderer;
 let button;
-let mult = 10;
-let s = .5;
+let mult = 1;
+let s = 1;
 let off = 55;
 
 function setup() {

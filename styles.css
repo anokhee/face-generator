@@ -7,7 +7,8 @@
     display: flex;
     height: 100vh;
     justify-content: center;
-    width: 62%;
+    width: 800px;
+    height: auto;
 }
 
 #ui-container {

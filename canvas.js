@@ -170,4 +170,20 @@ function draw() {
 function setBackground(color) {
     c.fillStyle = color;
     c.fillRect(0, 0, width, height);
+    c.stroke();
+   
+    for (let i = 0; i < width / 20; i++) {
+        c.beginPath();
+        c.moveTo(i * 20, 0);
+        c.lineTo(i * 20, height);
+        c.stroke();
+        c.beginPath();
+        c.moveTo(0, i * 20);
+        c.lineTo(width, i * 20);
+        c.stroke();
+        c.lineWidth = .5;
+        c.strokeStyle = `rgba(1, 1, 1, .25)`
+    } 
+    c.lineWidth = 3;
+    c.strokeStyle = `rgba(1, 1, 1, 1)`;
 }
