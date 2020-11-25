@@ -159,13 +159,17 @@
         width: 100%;
         z-index: 999;
     }
+
+    .slider {
+        width: 80vw !important; 
+    }
 }
 
 /* The slider itself */
 .slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 380px;
+    width: 400px;
     height: 32px;
     background: #ffffff;
     opacity: 0.8;
