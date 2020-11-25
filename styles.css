@@ -21,13 +21,13 @@
 
 .slide-container {
     align-items: center;
-    background-color: hsl(0, 60%, 90%);
+    background-color: hsl(0, 19%, 91%);
     display: flex;
-    height: 120px;
+    height: 110px;
     justify-content: center;
     margin: 0 auto;
     margin-top: 20px;
-    width: 95%;
+    width: 92%;
     z-index: 999;
 }
 
@@ -43,7 +43,8 @@
 }
 
 .slider-icon {
-    width: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .submenu-container {
@@ -138,7 +139,7 @@
     }
 
     .canvas-container {
-        align-items: center;
+        align-items: top;
         display: flex;
         height: 50vh;
         justify-content: center;
@@ -154,7 +155,7 @@
         position: fixed;
         justify-content: center;
         height: 70px;
-        top: 50%;
+        top: 50vh;
         width: 100%;
         z-index: 999;
     }
@@ -165,7 +166,7 @@
     -webkit-appearance: none;
     appearance: none;
     width: 380px;
-    height: 38px;
+    height: 32px;
     background: #ffffff;
     opacity: 0.8;
     -webkit-transition: .2s;
@@ -182,8 +183,8 @@
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 38px;
-    height: 38px;
+    width: 32px;
+    height: 32px;
     background: #0065FF;
     cursor: pointer;
 }
