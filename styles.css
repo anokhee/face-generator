@@ -13,6 +13,10 @@ canvas {
     padding: 0px !important;
 }
 
+.nav .nav-item {
+    width: 25% !important;
+}
+
 .nav-item:hover,
 .nav-link:hover {
     background-color: #dee8b8 !important;
@@ -77,7 +81,7 @@ canvas {
         height: 40px;
         -webkit-appearance: none;
         cursor: pointer;
-        box-shadow: 500px 0 0 500px #EFEFEF;
+        box-shadow: 500px 0 0 500px;
         z-index: 999;
     }
 }
@@ -131,5 +135,9 @@ input[type="range"]::-ms-fill-upper {
 @media only screen and (max-width: 400px) {
     .nav {
         margin-top: 270px;
+    }
+
+    .ui {
+        margin-top: 350px;
     }
 }
