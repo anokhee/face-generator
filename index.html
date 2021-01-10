@@ -8,57 +8,97 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./styles.css">
     <script src="./classes.js"></script>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css" rel="stylesheet" />
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"></script>
 </head>
 
 <body>
+    <canvas id="canvas"></canvas>
+    <div class="container ui">
+        <!-- Tabs navs -->
+        <ul class="nav nav-tabs nav-fill mb-3 fixed-top navbar" id="ex1" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab"
+                    aria-controls="ex1-tabs-1" aria-selected="true">
+                    <img class="icon" src="icons/head-shape.svg"></a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab"
+                    aria-controls="ex1-tabs-2" aria-selected="false">
+                    <img class="icon" src="icons/hairstyle.svg"></a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab"
+                    aria-controls="ex1-tabs-3" aria-selected="false">
+                    <img class="icon" src="icons/facial-features.svg"></a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab"
+                    aria-controls="ex1-tabs-4" aria-selected="false">
+                    <img class="icon" src="icons/color-palette.svg"></a>
+            </li>
+        </ul>
+        <!-- Tabs navs -->
 
-    <div class="container">
-        <div class="canvas-container">
-            <canvas id="canvas"></canvas>
-        </div>
-        <div id="ui-container">
-            <div class="tabs-container">
-                <div class="tab current tl"><img class="tab-icon" src="./icons/head-shape.svg"></div>
-                <div class="tab"><img class="tab-icon not-selected" src="./icons/hairstyle.svg"></div>
-                <div class="tab"><img class="tab-icon not-selected" src="./icons/facial-features.svg"></div>
-                <div class="tab tr"><img class="tab-icon not-selected" src="./icons/color-palette.svg"></div>
+        <!-- Tabs content -->
+        <div class="tab-content" id="ex1-content">
+            <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+
+                <div class="slider">
+                    <div class="container slider-label">
+                        <img class="icon" src="icons/head-shape/forehead-width-min.svg">
+                        <img class="icon" src="icons/head-shape/forehead-width-max.svg">
+                    </div>
+                    <div class="range">
+                        <input type="range" min="0" max="500" class="form-range" id="forehead-width-slider" />
+                    </div>
+                </div>
+
+                <div class="slider">
+                    <div class="container slider-label">
+                        <img class="icon" src="icons/head-shape/cheeks-width-min.svg">
+                        <img class="icon" src="icons/head-shape/cheeks-width-max.svg">
+                    </div>
+                    <div class="range">
+                        <input type="range" min="0" max="500" class="form-range" id="cheeks-width-slider" />
+                    </div>
+                </div>
+
+                <div class="slider">
+                    <div class="container slider-label">
+                        <img class="icon" src="icons/head-shape/chin-height-min.svg">
+                        <img class="icon" src="icons/head-shape/chin-height-max.svg">
+                    </div>
+                    <div class="range">
+                        <input type="range" min="0" max="500" class="form-range" id="chin-height-slider" />
+                    </div>
+                </div>
             </div>
-
-            <div id="head-shape-submenu">
-                <div class="slide-container">
-                    <div>
-                        <div class="sliders-min-max-container">
-                            <img class="slider-icon" src="icons/head-shape/forehead-width-min.svg">
-                            <img class="slider-icon" src="icons/head-shape/forehead-width-max.svg">
-                        </div>
-                        <input id="forehead-width-slider" type="range" min="0" max="500" value="0" class="slider">
-                    </div>
-                </div>
-
-                <div class="slide-container">
-                    <div>
-                        <div class="sliders-min-max-container">
-                            <img class="slider-icon" src="icons/head-shape/cheeks-width-min.svg">
-                            <img class="slider-icon" src="icons/head-shape/cheeks-width-max.svg">
-                        </div>
-                        <input id="cheeks-width-slider" type="range" min="0" max="500" value="0" class="slider">
-                    </div>
-                </div>
-
-                <div class="slide-container">
-                    <div>
-                        <div class="sliders-min-max-container">
-                            <img class="slider-icon" src="icons/head-shape/chin-height-min.svg">
-                            <img class="slider-icon" src="icons/head-shape/chin-height-max.svg">
-                        </div>
-                        <input id="chin-height-slider" type="range" min="0" max="500" value="0" class="slider">
-                    </div>
-                </div>
+            <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+                Tab 2 content
+            </div>
+            <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+                Tab 3 content
+            </div>
+            <div class="tab-pane fade" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+                Tab 4 content
             </div>
         </div>
+        <!-- Tabs content -->
     </div>
+
     <script src="./canvas.js"></script>
     <script src="./ui.js"></script>
+
+
 </body>
 
 </html>

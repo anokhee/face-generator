@@ -1,5 +1,6 @@
 function Face() {
     this.hsx = 230;
+    
     this.hsy = 0;
     this.hsy2 = 120;
     this.hcpx = 500;

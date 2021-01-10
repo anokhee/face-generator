@@ -1,205 +1,47 @@
-.container {
-    display: flex;
+* {
+    box-sizing: border-box;
 }
 
-.canvas-container {
+canvas {
+    z-index: 0;
+}
+
+.nav {
+    background-color: #E6DE8A;
+    border-radius: 20px 20px 0px 0px;
+    margin-top: 370px;
+    padding: 0px !important;
+}
+
+.nav-item {
+    width: 25%;
+}
+
+.slider-label {
     align-items: center;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    width: 800px;
-    height: auto;
-}
-
-#ui-container {
-    background-color: #fefefe;
-    border-radius: 25px 25px 0px 0px;
-    display: block;
-    margin: 0 auto;
-    width: 42%;
-}
-
-.slide-container {
-    align-items: center;
-    background-color: hsl(0, 19%, 91%);
-    display: flex;
-    height: 110px;
-    justify-content: center;
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 92%;
-    z-index: 999;
-}
-
-.sliders-min-max-container {
+    background-color: #efefef;
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    padding: 15px;
 }
 
-.slider {
-    cursor: pointer;
-    width: 400px;
-}
-
-.slider-icon {
-    width: 50px;
-    height: 50px;
-}
-
-.submenu-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    margin-top: 25px;
-}
-
-.submenu-btn {
-    width: 100px;
-    height: 100px;
-    background-color: #F26D6D;
-    border: 0px solid black;
-    border-radius: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-.select-hairstyle-btn {
-    color: #fff;
-    font-family: monospace;
-    background-color: #7F7FC1;
-    border: 0px solid #000000;
-    height: 60px;
-    width: 50%;
-    margin: 5px;
-}
-
-.tabs-container {
-    background-color: hsl(55, 70%, 70%);
-    border-radius: 25px 25px 0px 0px;
-    display: flex;
-    justify-content: center;
-    height: 70px;
-    width: 100%;
-}
-
-.tab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 25%;
-    opacity: 100%;
-}
-
-.current {
-    opacity: 100%;
-    background-color: #e6d200;
-}
-
-.current:hover {
-    background-color: #e8df7d;
-}
-
-.tl {
-    border-radius: 25px 0px 0px 0px;
-}
-
-.tab-icon {
-    height: auto;
-    opacity: 100%;
+.icon {
     width: 55px;
+    height: 55px;
 }
 
-.not-selected {
-    opacity: 50%;
+#ex1-content {
+    padding-top: 30px;
+    z-index: -99;
 }
 
-.tab:hover,
-.submenu-btn:hover,
-.select-hairstyle-btn:hover {
-    opacity: 50%;
-}
-
-@media only screen and (max-width: 600px) {
-    .container {
-        display: block;
-    }
-
-    #ui-container {
-        position: absolute;
-        margin-top: 0%;
-        width: 100vw;
-        height: 100vh;
-        padding-bottom: 8%;
-        top: 50%;
-        padding-top: 80px;
-    }
-
-    .canvas-container {
-        align-items: top;
-        display: flex;
-        height: 50vh;
-        justify-content: center;
-        position: fixed;
-        width: 100vw;
-        z-index: 999;
-    }
-
-    .tabs-container {
-        background-color: hsl(55, 70%, 70%);
-        border-radius: 25px 25px 0px 0px;
-        display: flex;
-        position: fixed;
-        justify-content: center;
-        height: 70px;
-        top: 50vh;
-        width: 100%;
-        z-index: 999;
-    }
-
-    .slider {
-        width: 310px !important; 
-    }
-}
-
-/* The slider itself */
 .slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 400px;
-    height: 32px;
-    background: #ffffff;
-    opacity: 0.8;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+    margin-bottom: 10px;
     margin-top: 10px;
 }
 
-/* Mouse-over effects */
-.slider:hover {
-    opacity: 1;
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 32px;
-    height: 32px;
-    background: #0065FF;
-    cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-    width: 30px;
-    /* Set a specific slider handle width */
-    height: 30px;
-    /* Slider handle height */
-    background: #0065FF;
-    /* Green background */
-    cursor: pointer;
-    /* Cursor on hover */
+.ui {
+    background-color: #ffffff;
+    margin-top: 440px;
+    z-index: -999;
 }

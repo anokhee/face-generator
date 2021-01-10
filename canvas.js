@@ -1,12 +1,14 @@
 const canvas = document.getElementById('canvas');
 const c = canvas.getContext("2d");
 width = 800;
-height = window.innerHeight;
+height = 600;
 canvas.width = width;
 canvas.height = height;
+canvas.style.position = "fixed";
+canvas.style.top = "0";
 let face, palette;
 let centerX = width / 2;
-let centerY = height / 3;
+let centerY = height / 2.5;
 
 setup();
 
@@ -14,12 +16,12 @@ function setup() {
     c.clearRect(0, 0, canvas.width, canvas.height);
     face = new Face();
     palette = new Palette();
-    c.lineWidth = 3;
     draw();
 };
 
 function draw() {
     setBackground(palette.backgroundColor);
+    c.lineWidth = 3;
     document.body.style.backgroundColor = palette.backgroundColor;
     for (i = face.bunSize; i > 0; i = i - face.hairstr) {
         c.beginPath();
@@ -172,7 +174,7 @@ function setBackground(color) {
     c.fillRect(0, 0, width, height);
     c.stroke();
    
-    for (let i = 0; i < width / 20; i++) {
+    for (let i = 0; i < (width * 2) / 10; i++) {
         c.beginPath();
         c.moveTo(i * 20, 0);
         c.lineTo(i * 20, height);
@@ -181,9 +183,7 @@ function setBackground(color) {
         c.moveTo(0, i * 20);
         c.lineTo(width, i * 20);
         c.stroke();
-        c.lineWidth = .5;
-        c.strokeStyle = `rgba(1, 1, 1, .25)`
+        c.lineWidth = .5;    
+        c.strokeStyle = `rgba(1, 1, 1, 1)`;
     } 
-    c.lineWidth = 3;
-    c.strokeStyle = `rgba(1, 1, 1, 1)`;
 }

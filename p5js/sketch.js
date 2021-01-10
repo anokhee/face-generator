@@ -3,7 +3,7 @@ let renderer;
 let button;
 let mult = 1;
 let s = 1;
-let off = 55;
+let off = 65;
 
 function setup() {
   renderer = createCanvas(windowWidth, windowHeight, SVG);
@@ -190,7 +190,7 @@ function Colors() {
   this.skinColor = [255, 255, 255, 0];
   this.eyeColor = [255, 255, 255];
   this.cheeksColor = [150, 150, 150];
-  this.strokeWeight = 10;
+  this.strokeWeight = 15;
 }
 
 function createGUI() {
