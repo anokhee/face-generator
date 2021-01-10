@@ -2,8 +2,8 @@ let face, palette, gui_head;
 let renderer;
 let button;
 let mult = 1;
-let s = 1;
-let off = 65;
+let s = .25;
+let off = 55;
 
 function setup() {
   renderer = createCanvas(windowWidth, windowHeight, SVG);

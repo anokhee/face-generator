@@ -3,31 +3,106 @@
 }
 
 canvas {
-    z-index: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 .nav {
     background-color: #E6DE8A;
     border-radius: 20px 20px 0px 0px;
-    margin-top: 370px;
     padding: 0px !important;
 }
 
-.nav-item {
-    width: 25%;
+.nav-item:hover,
+.nav-link:hover {
+    background-color: #dee8b8 !important;
 }
+
+.nav .active {
+    background-color: #E6D200 !important;
+    border-bottom: none !important;
+}
+
+.tl,
+.tl:hover {
+    border-radius: 20px 0px 0px 0px !important;
+}
+
+.tr,
+.tr:hover {
+    border-radius: 0px 20px 0px 0px !important;
+}
+
 
 .slider-label {
     align-items: center;
-    background-color: #efefef;
+    background-color: #EBE4E4;
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    padding: 10px;
+}
+
+.slider-label .icon {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+        overflow: hidden;
+        width: 100%;
+        -webkit-appearance: none;
+        background: linear-gradient(90deg, #0065FF, #E6D200);
+        margin-top: 10px;
+        border-radius: 20px;
+        transition: .5s;
+        opacity: 80%;
+    }
+
+    input[type='range']:hover {
+        transition: 1s;
+        opacity: 100%;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+        height: 15px;
+        -webkit-appearance: none;
+        color: #EFEFEF;
+        margin-top: 0px;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+        -webkit-appearance: none;
+        cursor: pointer;
+        box-shadow: 500px 0 0 500px #EFEFEF;
+        z-index: 999;
+    }
+}
+
+/** FF*/
+input[type="range"]::-moz-range-progress {
+    background-color: #EFEFEF;
+}
+
+input[type="range"]::-moz-range-track {
+    background-color: #EFEFEF;
+}
+
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+    background-color: #EFEFEF;
+}
+
+input[type="range"]::-ms-fill-upper {
+    background-color: #EFEFEF;
 }
 
 .icon {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
 }
 
 #ex1-content {
@@ -36,12 +111,25 @@ canvas {
 }
 
 .slider {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    z-index: -999;
 }
 
 .ui {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     margin-top: 440px;
-    z-index: -999;
+    z-index: -99;
+}
+
+@media only screen and (max-width: 800px) {
+    .nav {
+        margin-top: 370px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .nav {
+        margin-top: 270px;
+    }
 }

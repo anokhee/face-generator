@@ -1,14 +1,15 @@
 const canvas = document.getElementById('canvas');
 const c = canvas.getContext("2d");
+var heightRatio = .75;
 width = 800;
-height = 600;
+height = (width * heightRatio);
 canvas.width = width;
-canvas.height = height;
+canvas.height = canvas.width * heightRatio;
 canvas.style.position = "fixed";
 canvas.style.top = "0";
 let face, palette;
 let centerX = width / 2;
-let centerY = height / 2.5;
+let centerY = height / 3.25;
 
 setup();
 
@@ -21,7 +22,8 @@ function setup() {
 
 function draw() {
     setBackground(palette.backgroundColor);
-    c.lineWidth = 3;
+    c.lineWidth = 5;
+    c.strokeStyle = "rgba(0, 0, 0, 1)";
     document.body.style.backgroundColor = palette.backgroundColor;
     for (i = face.bunSize; i > 0; i = i - face.hairstr) {
         c.beginPath();
@@ -106,6 +108,8 @@ function draw() {
     c.bezierCurveTo(centerX - face.mouthCx, centerY + face.mouthCy,
         centerX + face.mouthCx, centerY + face.mouthCy,
         centerX + face.mouthX, centerY + face.mouthY);
+    c.strokeStyle = "rgba(0, 0, 0, 1)";
+    c.lineWidth = 5;
     c.stroke();
 
     // Makes nose
@@ -141,6 +145,7 @@ function draw() {
             c.fillStyle = palette.hairColor;
         }
         c.fill();
+        c.strokeStyle = "rgba(0, 0, 0, 0)";
         c.stroke();
 
         c.beginPath();
@@ -173,7 +178,7 @@ function setBackground(color) {
     c.fillStyle = color;
     c.fillRect(0, 0, width, height);
     c.stroke();
-   
+
     for (let i = 0; i < (width * 2) / 10; i++) {
         c.beginPath();
         c.moveTo(i * 20, 0);
@@ -183,7 +188,7 @@ function setBackground(color) {
         c.moveTo(0, i * 20);
         c.lineTo(width, i * 20);
         c.stroke();
-        c.lineWidth = .5;    
+        c.lineWidth = .5;
         c.strokeStyle = `rgba(1, 1, 1, 1)`;
-    } 
+    }
 }

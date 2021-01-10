@@ -1,1 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 65"><defs><style>.cls-1{fill:#fff;}.cls-1,.cls-2,.cls-3,.cls-4,.cls-5{stroke:#000;stroke-miterlimit:10;stroke-width:2px;}.cls-2{fill:#4fe1ff;}.cls-3{fill:#33cceb;}.cls-4{fill:#1caecc;}.cls-5{fill:#0c8ba5;}.cls-6{fill:none;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path id="Path_252" data-name="Path 252" class="cls-1" d="M60.37,51.5c.42-.66,9-14.73,1.72-28.75C54.45,8,36.71,7.68,34.77,7.68A30.23,30.23,0,0,0,14.71,15,28.57,28.57,0,0,0,6.12,29.07C5.41,31.85,3,41.3,8.65,48.8c1.14,1.5,4.45,5.89,9.5,6.38,7.14.69,9.32-6.64,16.15-6.24S43,57.13,49.76,57.32C54.22,57.45,58,54.22,60.37,51.5Zm-41.3-6.76a5,5,0,1,1,2.8-6.49,5,5,0,0,1-2.8,6.49Z"/><circle id="Ellipse_11" data-name="Ellipse 11" class="cls-2" cx="53.26" cy="39.64" r="4.05"/><circle id="Ellipse_12" data-name="Ellipse 12" class="cls-3" cx="50.12" cy="23.91" r="4.05"/><circle id="Ellipse_13" data-name="Ellipse 13" class="cls-4" cx="34.07" cy="16.99" r="4.05"/><circle id="Ellipse_14" data-name="Ellipse 14" class="cls-5" cx="19.6" cy="23.31" r="4.05"/><rect id="Rectangle_220" data-name="Rectangle 220" class="cls-6" width="70" height="65"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 70 65" style="enable-background:new 0 0 70 65;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#4FE1FF;}
+	.st2{fill:#33CCEB;}
+	.st3{fill:#1CAECC;}
+	.st4{fill:#0C8BA5;}
+	.st5{fill:none;}
+</style>
+<path id="Path_252" class="st0" d="M60.4,51.5c0.4-0.7,9-14.7,1.7-28.8C54.5,8,36.7,7.7,34.8,7.7c-7.4-0.1-14.5,2.5-20.1,7.3
+	c-4.2,3.7-7.2,8.6-8.6,14.1C5.4,31.9,3,41.3,8.6,48.8c1.1,1.5,4.4,5.9,9.5,6.4c7.1,0.7,9.3-6.6,16.1-6.2s8.7,8.2,15.5,8.4
+	C54.2,57.5,58,54.2,60.4,51.5z M19.1,44.7c-2.6,1-5.5-0.2-6.5-2.8c-1-2.6,0.2-5.5,2.8-6.5c2.6-1,5.5,0.2,6.5,2.8c0,0,0,0,0,0
+	C22.9,40.8,21.6,43.7,19.1,44.7z"/>
+<circle id="Ellipse_11" class="st1" cx="53.3" cy="39.6" r="4"/>
+<circle id="Ellipse_12" class="st2" cx="50.1" cy="23.9" r="4"/>
+<circle id="Ellipse_13" class="st3" cx="34.1" cy="17" r="4.1"/>
+<circle id="Ellipse_14" class="st4" cx="19.6" cy="23.3" r="4.1"/>
+<rect id="Rectangle_220" class="st5" width="70" height="65"/>
+</svg>

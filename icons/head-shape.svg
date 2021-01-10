@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 65"><defs><style>.cls-1{fill:none;}.cls-2{fill:#fff;stroke:#000;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect id="Rectangle_220" data-name="Rectangle 220" class="cls-1" width="70" height="65"/><path id="Path_42" data-name="Path 42" class="cls-2" d="M61.78,21.37c2.4,5.88,5.1,15.57,1.4,23.16-8.63,17.69-49,18.25-56.49,0-2.46-5.94-2.44-13.86,1.4-23.16C9.06,20,18.53,7,35.11,7A33.2,33.2,0,0,1,61.78,21.37Z"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 70 65" style="enable-background:new 0 0 70 65;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#FFFFFF;}
+</style>
+<g id="Layer_1-2">
+	<rect id="Rectangle_220" class="st0" width="70" height="65"/>
+	<path id="Path_42" class="st1" d="M61.8,21.4c2.4,5.9,5.1,15.6,1.4,23.2c-8.6,17.7-49,18.2-56.5,0c-2.5-5.9-2.4-13.9,1.4-23.2
+		C9.1,20,18.5,7,35.1,7C45.8,7.2,55.7,12.6,61.8,21.4z"/>
+</g>
+</svg>

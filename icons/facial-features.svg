@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 65"><defs><style>.cls-1,.cls-5,.cls-6{fill:none;}.cls-1,.cls-2,.cls-3,.cls-4,.cls-5{stroke:#000;stroke-miterlimit:10;stroke-width:2px;}.cls-2{fill:#60bdbe;}.cls-3{fill:#fff;}.cls-4{fill:#363636;}.cls-5{stroke-linecap:round;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path id="Path_16-2" data-name="Path 16-2" class="cls-1" d="M23.58,44.89c-6.42,7.63,29.26,7.63,22.84,0"/><path id="Path_18" data-name="Path 18" class="cls-2" d="M5,37.27a7.38,7.38,0,0,1,7.16-7.58,7.38,7.38,0,0,1,7.11,7.63,7.37,7.37,0,0,1-7.13,7.57A7.39,7.39,0,0,1,5,37.27Z"/><path id="Path_19" data-name="Path 19" class="cls-2" d="M50.73,37.27a7.15,7.15,0,1,1,14.27,0,7.15,7.15,0,1,1-14.27,0Z"/><path id="Path_20" data-name="Path 20" class="cls-3" d="M12.16,19c0-2.53,3.84-4.58,8.57-4.58s8.56,2,8.56,4.58-3.83,4.58-8.56,4.58S12.16,21.49,12.16,19Z"/><path id="Path_21" data-name="Path 21" class="cls-3" d="M40.71,19c0-2.53,3.83-4.58,8.56-4.58s8.57,2,8.57,4.58S54,23.54,49.27,23.54,40.71,21.49,40.71,19Z"/><path id="Path_22" data-name="Path 22" class="cls-4" d="M17.53,19a3.37,3.37,0,0,1,3.24-3.48A3.35,3.35,0,0,1,24,19a3.36,3.36,0,0,1-3.23,3.48h0A3.35,3.35,0,0,1,17.53,19Z"/><path id="Path_23" data-name="Path 23" class="cls-4" d="M46.07,19a3.26,3.26,0,1,1,3.27,3.44h0A3.35,3.35,0,0,1,46.07,19Z"/><path id="Path_25" data-name="Path 25" class="cls-5" d="M29.29,38.79c-1.43-7.63,12.85-7.63,11.42,0"/><rect id="Rectangle_220" data-name="Rectangle 220" class="cls-6" width="70" height="65"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 70 65" style="enable-background:new 0 0 70 65;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st1{fill:#60BDBE;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:#363636;}
+	.st4{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
+	.st5{fill:none;}
+</style>
+<path id="Path_16-2" class="st0" d="M23.6,44.9c-6.4,7.6,29.3,7.6,22.8,0"/>
+<path id="Path_18" class="st1" d="M5,37.3c-0.1-4.1,3.1-7.5,7.2-7.6c4.1,0.1,7.3,3.6,7.1,7.6c0.1,4.1-3.1,7.4-7.1,7.6
+	C8.1,44.8,4.9,41.3,5,37.3z"/>
+<path id="Path_19" class="st1" d="M50.7,37.3c-0.3-3.9,2.7-7.3,6.7-7.6s7.3,2.7,7.6,6.7c0,0.3,0,0.6,0,0.9c0.3,3.9-2.7,7.3-6.7,7.6
+	s-7.3-2.7-7.6-6.7C50.7,37.9,50.7,37.6,50.7,37.3z"/>
+<path id="Path_20" class="st2" d="M12.2,19c0-2.5,3.8-4.6,8.6-4.6s8.6,2,8.6,4.6s-3.8,4.6-8.6,4.6S12.2,21.5,12.2,19z"/>
+<path id="Path_21" class="st2" d="M40.7,19c0-2.5,3.8-4.6,8.6-4.6s8.6,2,8.6,4.6s-3.8,4.5-8.6,4.5S40.7,21.5,40.7,19z"/>
+<path id="Path_22" class="st3" d="M17.5,19c-0.1-1.9,1.4-3.4,3.2-3.5c1.8,0.1,3.3,1.6,3.2,3.5c0,0,0,0,0,0c0.1,1.9-1.4,3.4-3.2,3.5
+	l0,0C18.9,22.4,17.5,20.9,17.5,19C17.5,19,17.5,19,17.5,19z"/>
+<path id="Path_23" class="st3" d="M46.1,19c0.1-1.8,1.6-3.2,3.4-3.1c1.8,0.1,3.2,1.6,3.1,3.4c-0.1,1.7-1.5,3.1-3.2,3.1l0,0
+	C47.5,22.4,46,20.9,46.1,19C46.1,19,46.1,19,46.1,19z"/>
+<path id="Path_25" class="st4" d="M29.3,38.8c-1.4-7.6,12.8-7.6,11.4,0"/>
+<rect id="Rectangle_220" class="st5" width="70" height="65"/>
+</svg>
