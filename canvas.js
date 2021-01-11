@@ -1,10 +1,9 @@
 const canvas = document.getElementById('canvas');
 const c = canvas.getContext("2d");
-var heightRatio = .75;
 width = 800;
-height = (width * heightRatio);
+height = 600;
 canvas.width = width;
-canvas.height = canvas.width * heightRatio;
+canvas.height = height;
 canvas.style.position = "fixed";
 canvas.style.top = "0";
 let face, palette;
@@ -23,7 +22,7 @@ function setup() {
 function draw() {
     setBackground(palette.backgroundColor);
     c.lineWidth = 5;
-    c.strokeStyle = "rgba(0, 0, 0, 1)";
+    c.strokeStyle = "rgba(0, 0, 0, 0)";
     document.body.style.backgroundColor = palette.backgroundColor;
     for (i = face.bunSize; i > 0; i = i - face.hairstr) {
         c.beginPath();

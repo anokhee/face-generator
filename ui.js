@@ -6,7 +6,7 @@ let bunSpacingSlider = document.getElementById('bun-spacing-slider');
 let bunYPosSlider = document.getElementById('bun-ypos-slider');
 let bunSizeSlider = document.getElementById('bun-size-slider');
 
-let hairThicknessSlider = document.getElementById('hair-thickness-slider');
+let hairFullnessSlider = document.getElementById('hair-fullness-slider');
 let hairLengthSlider = document.getElementById('hair-length-slider');
 let hairStrandSlider = document.getElementById('hair-strand-slider');
 
@@ -16,7 +16,12 @@ let arr = [
     [foreheadWidthSlider, `hsx`],
     [cheeksWidthSlider, `hcpx`],
     [chinHeightSlider, `hcpy`],
-    [hairThicknessSlider, 'hairk']
+    [hairFullnessSlider, 'hairk'],
+    [hairLengthSlider, 'hairl'],
+    [hairStrandSlider, 'hairstr'],
+    [bunSizeSlider, 'bunSize'],
+    [bunSpacingSlider, 'bunx'],
+    [bunYPosSlider, 'buny']
 ];
 
 

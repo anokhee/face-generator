@@ -3,26 +3,61 @@
 }
 
 canvas {
-    width: 100%;
+    width: 50%;
     z-index: 100;
 }
 
-.nav {
+.navbar {
     background-color: #E6DE8A;
     border-radius: 20px 20px 0px 0px;
     padding: 0px !important;
+    float: right;
 }
 
-.nav .nav-item {
-    width: 25% !important;
+.navbar .nav-item {
+    width: 1/4;
 }
 
-.nav-item:hover,
-.nav-link:hover {
+.navbar .nav-link {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    margin: 0px !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.facial-features .nav-link {
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.facial-features .nav-item .nav-link {
+    background-color: #F6D4D4;
+}
+
+.facial-features .nav-item .nav-link:active {
+    background-color: #F26D6D;
+}
+
+.nav-pills {
+    /* padding: 0px !important; */
+    padding-top: 20px;
+}
+
+.tab-content .for-pills {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+
+.navbar .nav-item:hover,
+.navbar .nav-link:hover {
     background-color: #dee8b8 !important;
 }
 
-.nav .active {
+.navbar .active {
     background-color: #E6D200 !important;
     border-bottom: none !important;
 }
@@ -36,7 +71,6 @@ canvas {
 .tr:hover {
     border-radius: 0px 20px 0px 0px !important;
 }
-
 
 .slider-label {
     align-items: center;
@@ -83,6 +117,9 @@ canvas {
         cursor: pointer;
         box-shadow: 500px 0 0 500px;
         z-index: 999;
+        border-radius: 0px 20px 20px 0px;
+        background: rgba(0, 0, 0, 0);
+        border: none;
     }
 }
 
@@ -105,8 +142,8 @@ input[type="range"]::-ms-fill-upper {
 }
 
 .icon {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
 }
 
 #ex1-content {
@@ -115,29 +152,37 @@ input[type="range"]::-ms-fill-upper {
 }
 
 .slider {
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     z-index: -999;
 }
 
 .ui {
     background-color: #FFFFFF;
-    margin-top: 440px;
+    margin-top: 100px;
     z-index: -99;
 }
 
 @media only screen and (max-width: 800px) {
-    .nav {
-        margin-top: 370px;
+    canvas {
+        width: 100%;
     }
-}
 
-@media only screen and (max-width: 400px) {
-    .nav {
-        margin-top: 270px;
+    .navbar {
+        margin-top: 370px;
     }
 
     .ui {
-        margin-top: 350px;
+        margin-top: 430px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .navbar {
+        margin-top: 290px;
+    }
+
+    .ui {
+        margin-top: 360px;
     }
 }
