@@ -1,0 +1,77 @@
+
+/* Responsive Sizing for Mobile Devices */
+
+@media only screen and (max-width: 800px) {
+    canvas {
+        width: 100%;
+    }
+
+    .navbar {
+        margin-top: 550px;
+    }
+
+    .ui {
+        margin-top: 620px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        margin-top: 400px;
+    }
+
+    .ui {
+        margin-top: 480px;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .navbar {
+        margin-top: 350px;
+    }
+
+    .ui {
+        margin-top: 420px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .navbar {
+        margin-top: 290px;
+    }
+
+    .ui {
+        margin-top: 300px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .navbar {
+        margin-top: 270px;
+    }
+
+    .ui {
+        margin-top: 330px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .navbar {
+        margin-top: 220px;
+    }
+
+    .ui {
+        margin-top: 350px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .navbar {
+        margin-top: 200px;
+    }
+
+    .ui {
+        margin-top: 270px;
+    }
+}
