@@ -56,14 +56,14 @@ function bindInput(i, part) {
 
 let p = document.getElementById('color-swatch-container');
 
-let colorArr = ['#b21623', '#fb7812', '#aea781',
-    '#e5a623', '#182490', '#11e81a',
-    '#Ff3a123', '#313abc', '#190e90',
-    '#222555', '#a23354', '#18924a',
-    '#141414', '#161599', '#aeae781'
+let skinColors = ['#5C3F0D', '#7E5714', '#775925',
+    '#8B6422', '#8B6E3D', '#9F7734',
+    '#A28452', '#B58F4E', '#B4996B',
+    '#CCA96E', '#CCB690', '#E5C99B',
+    '#E0CFB3', '#F7E2BF', '#F7EEDF'
 ]
 
-function createColorSwatches(arr) {
+function createColorSwatch(arr) {
     for (i = 0; i < 15; i++) {
         let swatch = document.createElement('div');
         swatch.className = 'color-swatch';
@@ -72,4 +72,4 @@ function createColorSwatches(arr) {
     }
 }
 
-createColorSwatches(colorArr);
+createColorSwatch(skinColors);
