@@ -7,6 +7,15 @@ canvas {
     z-index: 100;
 }
 
+h3 {
+    color: #141414;
+    font-family: 'Calibri', sans-serif;
+    font-weight: lighter !important;
+    font-size: 16px !important;
+    text-align: center;
+    padding: 20px;
+}
+
 .navbar {
     background-color: #E6DE8A;
     border-radius: 20px 20px 0px 0px;
@@ -15,7 +24,7 @@ canvas {
 }
 
 .navbar .nav-item {
-    width: 1/4;
+    width: 1/5;
 }
 
 .navbar .nav-link {
@@ -27,28 +36,33 @@ canvas {
 }
 
 .facial-features .nav-link {
-    margin-left: 2px !important;
-    margin-right: 2px !important;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    margin-left: 4px !important;
+    margin-right: 4px !important;
 }
 
-.facial-features .nav-item .nav-link {
+.nav-pills .nav-item .nav-link {
+    border-radius: 15px !important;
     background-color: #F6D4D4;
 }
 
-.facial-features .nav-item .nav-link:active {
-    background-color: #F26D6D;
+.nav-pills .active {
+    background: #F26D6D !important;
 }
 
 .nav-pills {
     /* padding: 0px !important; */
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .tab-content .for-pills {
     padding: 0px !important;
     margin: 0px !important;
+    justify-content: center;
+}
+
+.center-pills {
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -72,12 +86,62 @@ canvas {
     border-radius: 0px 20px 0px 0px !important;
 }
 
-.slider-label {
+.slider-label,
+.color-palette-container {
     align-items: center;
     background-color: #EBE4E4;
     display: flex;
     justify-content: space-between;
     padding: 10px;
+}
+
+.color-palette-container {
+    background: none !important;
+    margin: 0 auto;
+    align-items: center;
+    /* border: 1px solid #d9d9d9; */
+}
+
+.color-palette-container .icon {
+    width: 60px;
+    height: 60px;
+}
+
+.color-icon-with-label {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.color-icon-with-label div {
+    display: block;
+}
+
+.color-icon-with-label p {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+    text-align: center;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+#color-swatch-container {
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #d8d8d8;
+    margin: 2px;
 }
 
 .slider-label .icon {
@@ -90,7 +154,7 @@ canvas {
     input[type='range'] {
         overflow: hidden;
         width: 100%;
-        height: 40px;
+        height: 20px;
         -webkit-appearance: none;
         background: linear-gradient(90deg, #0065FF, #E6D200);
         margin-top: 10px;
@@ -111,8 +175,8 @@ canvas {
     }
 
     input[type='range']::-webkit-slider-thumb {
-        width: 40px;
-        height: 40px;
+        width: 20px;
+        height: 20px;
         -webkit-appearance: none;
         cursor: pointer;
         box-shadow: 500px 0 0 500px;
@@ -163,26 +227,23 @@ input[type="range"]::-ms-fill-upper {
     z-index: -99;
 }
 
-@media only screen and (max-width: 800px) {
-    canvas {
-        width: 100%;
-    }
 
-    .navbar {
-        margin-top: 370px;
-    }
 
-    .ui {
-        margin-top: 430px;
-    }
+.one-row {
+    display: flex;
+    align-items: center;
 }
 
-@media only screen and (max-width: 450px) {
-    .navbar {
-        margin-top: 290px;
-    }
+.one-row div {
+    width: 85%;
+}
 
-    .ui {
-        margin-top: 360px;
-    }
+.one-row .slider-label {
+    justify-content: center;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 15%;
+    margin: 10px;
 }
