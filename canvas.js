@@ -124,14 +124,14 @@ function draw() {
     // Makes hair
     for (i = 1; i <= face.hairk; i = i + face.hairstr) {
         c.beginPath();
-        if (face.hairStyleLeft === 0) {
+        if (face.hairStyle === 0) {
             c.moveTo(centerX, centerY / 2 - face.hairln);
             c.bezierCurveTo(
                 centerX, centerY / 2,
                 centerX - face.hsx, (centerY + i * face.hairl) - centerY,
                 centerX - face.hsx, centerY,
             );
-        } else if (face.hairStyleLeft === 1) {
+        } else if (face.hairStyle === 1) {
             c.moveTo(centerX - face.hsx, centerY + i * face.hairl);
             c.bezierCurveTo(
                 centerX - face.hsx, centerY / 2 + i * i, centerX, centerY / 2, centerX, centerY - centerY / 4 + face.hairln
@@ -148,14 +148,14 @@ function draw() {
         c.stroke();
 
         c.beginPath();
-        if (face.hairStyleRight === 0) {
+        if (face.hairStyle === 0) {
             c.moveTo(centerX, centerY / 2 - face.hairln);
             c.bezierCurveTo(
                 centerX, centerY / 2,
                 centerX + face.hsx, (centerY + i * face.hairl) - centerY,
                 centerX + face.hsx, centerY,
             );
-        } else if (face.hairStyleRight === 1) {
+        } else if (face.hairStyle === 1) {
             c.moveTo(centerX + face.hsx, centerY + i * face.hairl);
             c.bezierCurveTo(
                 centerX + face.hsx, centerY / 2 + i * i, centerX, centerY / 2, centerX, centerY - centerY / 4 + face.hairln

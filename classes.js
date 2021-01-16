@@ -9,15 +9,20 @@ function Face() {
     this.buny = 50;
     this.bunSize = 10;
 
-    this.hairStyleLeft = 0;
-    this.hairStyleRight = 0;
+    this.hairStyle = 0;
     // To add: 
     // 1) More hairstyle options -- maybe 4 maximum, to learn about controlling Bezier curves.
     // 2) Eyebrows... cuz duh... that would be SO CUTE.  
     this.hairk = 15;
     this.hairstr = 5;
     this.hairl = 20;
-    this.hairln = 0;
+
+    if (this.hairStyleLeft === 1 | this.hairStyleRight === 1) {
+        this.hairln = -50;
+    } else {
+        this.hairln = 0;
+    }
+
 
     this.espac = 100;
     this.eypos = 100;
