@@ -1,0 +1,10 @@
+TO DO (nice to haves): 
+
+- Add opacity sliders for all the colors & lines
+- Create a single icon sheet for all icons & figure out how to retrieve them by coordinate 
+- Fix up HTML (md bootstrap default class names) & file formatting in general 
+- Add a custom color swatch/picker
+- Convert slider function array to a JS object 
+- Fill/Don't Fill nose toggle
+- Remove Color
+- Figure out how to work sessions :P 

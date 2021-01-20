@@ -25,44 +25,49 @@ let noseYPosSlider = document.getElementById('nose-base-ypos-slider');
 let noseWidthSlider = document.getElementById('nose-width-slider');
 let noseLengthSlider = document.getElementById('nose-length-slider');
 
+let faceOutlineSlider = document.getElementById('face-outline-slider');
+
 let arr = [
-    [foreheadWidthSlider, `hsx`],
-    [cheeksWidthSlider, `hcpx`],
-    [chinHeightSlider, `hcpy`],
-    [hairFullnessSlider, 'hairk'],
-    [hairLengthSlider, 'hairl'],
-    [hairStrandSlider, 'hairstr'],
-    [bunSizeSlider, 'bunSize'],
-    [bunSpacingSlider, 'bunx'],
-    [bunYPosSlider, 'buny'],
-    [eyeSpacingSlider, 'espac'],
-    [eyeYPosSlider, 'eypos'],
-    [eyeWidthSlider, 'ew'],
-    [eyeHeightSlider, 'eh'],
-    [pupilSizeSlider, 'p'],
-    [noseBaseWidthSlider, 'noseX'],
-    [noseYPosSlider, 'noseY'],
-    [noseWidthSlider, 'noseCx'],
-    [noseLengthSlider, 'noseCy'],
-    [cheeksSpacingSlider, 'chSpacing'],
-    [cheeksYPosSlider, 'chYpos'],
-    [cheeksSizeSlider, 'ch']
+    [face, foreheadWidthSlider, `hsx`],
+    [face, cheeksWidthSlider, `hcpx`],
+    [face, chinHeightSlider, `hcpy`],
+    [face, hairFullnessSlider, 'hairk'],
+    [face, hairLengthSlider, 'hairl'],
+    [face, hairStrandSlider, 'hairstr'],
+    [face, bunSizeSlider, 'bunSize'],
+    [face, bunSpacingSlider, 'bunx'],
+    [face, bunYPosSlider, 'buny'],
+    [face, eyeSpacingSlider, 'espac'],
+    [face, eyeYPosSlider, 'eypos'],
+    [face, eyeWidthSlider, 'ew'],
+    [face, eyeHeightSlider, 'eh'],
+    [face, pupilSizeSlider, 'p'],
+    [face, noseBaseWidthSlider, 'noseCx'],
+    [face, noseYPosSlider, 'noseY'],
+    [face, noseWidthSlider, 'noseX'],
+    [face, noseLengthSlider, 'noseCy'],
+    [face, cheeksSpacingSlider, 'chSpacing'],
+    [face, cheeksYPosSlider, 'chYpos'],
+    [face, cheeksSizeSlider, 'ch'],
+    [palette, faceOutlineSlider, 'strokeWeight']
 ];
 
 
 for (var i = 0; i < arr.length; i++) {
-    arr[i][0].addEventListener("input", bindInput(i, arr[i]));
+    arr[i][1].addEventListener("input", bindInput(i, arr[i]));
 }
 
 function bindInput(i) {
     return function () {
-        face[arr[i][1]] = parseInt(this.value);
+        arr[i][0][arr[i][2]] = parseInt(this.value);
     };
 }
 
 
 let skinColorPalette = document.getElementById('skinColorPalette');
 let cheeksColorPalette = document.getElementById('cheeksColorPalette');
+let eyesColorPalette = document.getElementById('eyesColorPalette');
+
 
 
 let skinColors = ['#5C3F0D', '#775925',
@@ -80,6 +85,9 @@ let hairColors = ['#000000', '#5E3832', '#8A3D40', '#969090', '#D3C976', '#F8CD0
     '#CD4922', '#008DE3', '#93BDC9', '#FF3C44',
     '#00CEB4', '#FF7F3A', '#A8428E', '#FF99AF'
 ];
+
+let eyeColors = ['#151005', '#36290C', '#097D60',
+'#456D6A', '#305ABA', '#0069B9', '#B8B4C6'];
 
 function createColorSwatch(pal, arr, part) {
     part = Object.keys(palette)[part];
@@ -109,6 +117,18 @@ function createColorSwatch(pal, arr, part) {
 createColorSwatch(skinColorPalette, skinColors, 0);
 createColorSwatch(cheeksColorPalette, cheeksColors, 4);
 createColorSwatch(hairColorPalette, hairColors, 1);
+createColorSwatch(eyesColorPalette, eyeColors, 2);
 
 let boubaHairSelector = document.getElementById('bouba-hair-selector');
 let kikiHairSelector = document.getElementById('kiki-hair-selector');
+
+boubaHairSelector.addEventListener('click', function(){
+    face.hairStyle = 0;
+    face.hairln = 0;
+});
+
+
+kikiHairSelector.addEventListener('click', function(){
+    face.hairStyle = 1;
+    face.hairln = -50;
+});

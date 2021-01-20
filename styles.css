@@ -21,6 +21,7 @@ h3 {
     border-radius: 20px 20px 0px 0px;
     padding: 0px !important;
     float: right;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, .1) !important;
 }
 
 .navbar .nav-item {
@@ -40,9 +41,11 @@ h3 {
     margin-right: 4px !important;
 }
 
+
 .nav-pills .nav-item .nav-link {
     border-radius: 20px !important;
     background-color: #F6D4D4;
+    margin-top: 50px;
 }
 
 .nav-pills .active {
@@ -151,7 +154,8 @@ h3 {
 }
 
 .choose-hairstyle-container {
-    margin-top: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     text-align: center;
 }
 

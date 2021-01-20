@@ -9,7 +9,7 @@ function Face() {
     this.buny = 50;
     this.bunSize = 10;
 
-    this.hairStyle = 0;
+    this.hairStyle = 1;
     // To add: 
     // 1) More hairstyle options -- maybe 4 maximum, to learn about controlling Bezier curves.
     // 2) Eyebrows... cuz duh... that would be SO CUTE.  
@@ -17,7 +17,7 @@ function Face() {
     this.hairstr = 5;
     this.hairl = 20;
 
-    if (this.hairStyleLeft === 1 | this.hairStyleRight === 1) {
+    if (this.hairStyle === 1 | this.hairStyle === 1) {
         this.hairln = -50;
     } else {
         this.hairln = 0;
@@ -53,4 +53,18 @@ function Palette() {
     this.eyeColor = `rgba(255, 255, 255, 1)`;
     this.cheeksColor = `rgba(230, 100, 100, 1)`;
     this.backgroundColor = `rgba(255, 255, 255, 1)`;
+    this.strokeOpacity = 1;
+    this.strokeWeight = 0;
+    this.stroke = `rgba(0, 0, 0, ${this.strokeOpacity})`;
 }
+
+function BackgroundPattern(){
+    this.gridStrokeWeight = .5;
+    this.gridStrokeOpacity = .25;
+    this.gridStroke = `rgba(0, 0, 255, ${this.gridStrokeOpacity})`;
+
+    this.gridSpacingX = 50;
+    this.gridSpacingY = 50;
+    
+}
+
