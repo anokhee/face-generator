@@ -206,22 +206,28 @@ function setBackground(color) {
     c.fillRect(0, 0, width, height);
     c.stroke();
 
+    c.lineWidth = background.gridStrokeWeight;
+    c.strokeStyle = background.gridStroke;
+    c.strokeStyle = palette.stroke;
 
-    for (let i = -background.gridSpacingX; i < (width * 2) / background.gridSpacingX; i++) {
+    let squareSize = 5;
+
+    for (let i = -background.gridSpacingX; i < (width * 3.5) / background.gridSpacingX; i++) {
         c.beginPath();
         c.moveTo(i * background.gridSpacingX, 0);
         c.lineTo(i * background.gridSpacingX, height);
         c.stroke();
+
         c.beginPath();
         c.moveTo(0, i * background.gridSpacingY);
         c.lineTo(width, i * background.gridSpacingY);
         c.stroke();
 
         //Pattern maker 
-        for (j = -background.gridSpacingY; j < (height * 2) / background.gridSpacingY; j++) {
+        for (j = -background.gridSpacingY; j < (height * 2) / background.gridSpacingY / 2; j++) {
             c.beginPath();
-            c.fillStyle = `rgba(0, 0, 200, .1)`;
-            c.rect(i * background.gridSpacingX - 10 / 2, j * background.gridSpacingY - 10 / 2, 10, 10);
+            c.fillStyle = `rgba(0, 0, 200, .5)`;
+            c.rect(i * background.gridSpacingX - squareSize / 2, j * background.gridSpacingY - squareSize / 2, squareSize, squareSize);
             c.fill();
             c.stroke();
         }
@@ -239,6 +245,4 @@ for (let tab of tabs) {
     })
 }
 
-
 // Pattern maker
-

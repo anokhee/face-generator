@@ -26,6 +26,9 @@ let noseWidthSlider = document.getElementById('nose-width-slider');
 let noseLengthSlider = document.getElementById('nose-length-slider');
 
 let faceOutlineSlider = document.getElementById('face-outline-slider');
+let gridOutlineSlider = document.getElementById('background-grid-opacity-slider');
+let backgroundGridXSpacingSlider = document.getElementById('background-grid-spacing-x-slider');
+let backgroundGridYSpacingSlider = document.getElementById('background-grid-spacing-y-slider');
 
 let arr = [
     [face, foreheadWidthSlider, `hsx`],
@@ -49,7 +52,9 @@ let arr = [
     [face, cheeksSpacingSlider, 'chSpacing'],
     [face, cheeksYPosSlider, 'chYpos'],
     [face, cheeksSizeSlider, 'ch'],
-    [palette, faceOutlineSlider, 'strokeWeight']
+    [palette, faceOutlineSlider, 'strokeWeight'],
+    [background, backgroundGridXSpacingSlider, 'gridSpacingX'],
+    [background, backgroundGridYSpacingSlider, 'gridSpacingY'],
 ];
 
 
