@@ -210,7 +210,7 @@ function setBackground(color) {
     c.strokeStyle = background.gridStroke;
     c.strokeStyle = palette.stroke;
 
-    let squareSize = 5;
+    let squareSize = background.squareSize;
 
     for (let i = -background.gridSpacingX; i < (width * 3.5) / background.gridSpacingX; i++) {
         c.beginPath();
@@ -224,9 +224,10 @@ function setBackground(color) {
         c.stroke();
 
         //Pattern maker 
-        for (j = -background.gridSpacingY; j < (height * 2) / background.gridSpacingY / 2; j++) {
+        for (j = -background.gridSpacingY; j < (width * 2) / background.gridSpacingY / 2; j++) {
             c.beginPath();
-            c.fillStyle = `rgba(0, 0, 200, .5)`;
+            c.strokeStyle = `rgba(0, 0, 0, 0)`;
+            c.fillStyle = `rgba(50, 10, 200, .25)`;
             c.rect(i * background.gridSpacingX - squareSize / 2, j * background.gridSpacingY - squareSize / 2, squareSize, squareSize);
             c.fill();
             c.stroke();

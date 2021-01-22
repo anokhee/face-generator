@@ -1,6 +1,19 @@
 
 /* Responsive Sizing for Mobile Devices */
 
+@media only screen and (min-width: 801px) {
+    canvas {
+        width: 50% !important;
+    }
+
+    .ui {
+        width: 50% !important;
+        float: right;
+        margin-top: 0px;
+        padding-top: 60px !important;
+    }
+}
+
 @media only screen and (max-width: 800px) {
     canvas {
         width: 100%;
@@ -8,6 +21,7 @@
 
     .navbar {
         margin-top: 550px;
+        width: 100% !important;
     }
 
     .ui {

@@ -60,10 +60,12 @@ function Palette() {
 
 function BackgroundPattern(){
     this.gridStrokeWeight = .5;
-    this.gridStrokeOpacity = 1;
+    this.gridStrokeOpacity = .25;
     this.gridStroke = `rgba(0, 0, 255, ${this.gridStrokeOpacity})`;
 
     this.gridSpacingX = 50;
     this.gridSpacingY = 50;   
+
+    this.squareSize = 12;
 }
 

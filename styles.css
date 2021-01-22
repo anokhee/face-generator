@@ -17,12 +17,17 @@ h3 {
 }
 
 .navbar {
+    position: fixed !important;
+    top: 0;
+    width: 50% !important;
+
     background-color: #E6DE8A;
     border-radius: 20px 20px 0px 0px;
     padding: 0px !important;
-    float: right;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, .1) !important;
+    z-index: 99999;
 }
+
 
 .navbar .nav-item {
     width: 1/5;
@@ -45,7 +50,8 @@ h3 {
 .nav-pills .nav-item .nav-link {
     border-radius: 20px !important;
     background-color: #F6D4D4;
-    margin-top: 50px;
+    margin: 10px;
+    margin-top: 30px;
 }
 
 .nav-pills .active {
@@ -188,7 +194,8 @@ div.btn-group label {
     text-transform: lowercase !important;
 }
 
-div.btn-group label p, div.btn-group label .icon {
+div.btn-group label p,
+div.btn-group label .icon {
     margin: 5px;
 }
 
@@ -265,11 +272,17 @@ input[type="range"]::-ms-fill-upper {
     z-index: -999;
 }
 
+.slider, .color-palette-container {
+    margin: 10px !important;
+}
+
 .ui {
     background-color: #FFFFFF;
     margin-top: 100px;
     z-index: -99;
+    padding: 0px !important;
 }
+
 
 
 

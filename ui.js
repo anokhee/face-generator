@@ -30,6 +30,8 @@ let gridOutlineSlider = document.getElementById('background-grid-opacity-slider'
 let backgroundGridXSpacingSlider = document.getElementById('background-grid-spacing-x-slider');
 let backgroundGridYSpacingSlider = document.getElementById('background-grid-spacing-y-slider');
 
+let backgroundSquareSlider = document.getElementById('background-square-slider');
+
 let arr = [
     [face, foreheadWidthSlider, `hsx`],
     [face, cheeksWidthSlider, `hcpx`],
@@ -55,6 +57,7 @@ let arr = [
     [palette, faceOutlineSlider, 'strokeWeight'],
     [background, backgroundGridXSpacingSlider, 'gridSpacingX'],
     [background, backgroundGridYSpacingSlider, 'gridSpacingY'],
+    [background, backgroundSquareSlider, 'squareSize']
 ];
 
 
@@ -68,12 +71,9 @@ function bindInput(i) {
     };
 }
 
-
 let skinColorPalette = document.getElementById('skinColorPalette');
 let cheeksColorPalette = document.getElementById('cheeksColorPalette');
 let eyesColorPalette = document.getElementById('eyesColorPalette');
-
-
 
 let skinColors = ['#5C3F0D', '#775925',
     '#8B6422', '#8B6E3D', '#9F7734',
@@ -88,7 +88,7 @@ let cheeksColors = ['#945327', '#BF794A', '#D99669',
 
 let hairColors = ['#000000', '#5E3832', '#8A3D40', '#969090', '#D3C976', '#F8CD00',
     '#CD4922', '#008DE3', '#93BDC9', '#FF3C44',
-    '#00CEB4', '#FF7F3A', '#A8428E', '#FF99AF'
+    '#00CEB4', '#FF7F3A', '#A8428E', '#FF99AF', '#FFFFFF'
 ];
 
 let eyeColors = ['#151005', '#36290C', '#097D60',

@@ -26,465 +26,478 @@
 
 <body>
 
-    <div class="canvas-container">
+    <div>
         <canvas id="canvas"></canvas>
-    </div>
 
-    <div class="container ui">
 
-        <!-- Sticky navigation menu for all 4 tabbed submenus -->
-        <ul class="navbar nav nav-tabs nav-fill w-100 fixed-top" id="headShapeTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a class="nav-link active tl" id="headShapeTab-tab-1" data-mdb-toggle="tab" href="#headShapeTab-tabs-1"
-                    role="tab" aria-controls="headShapeTab-tabs-1" aria-selected="true">
-                    <img class="icon" src="icons/head-shape.svg"></a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab"
-                    aria-controls="ex1-tabs-2" aria-selected="false">
-                    <img class="icon" src="icons/hairstyle.svg"></a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab"
-                    aria-controls="ex1-tabs-3" aria-selected="false">
-                    <img class="icon" src="icons/facial-features.svg"></a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab"
-                    aria-controls="ex1-tabs-4" aria-selected="false">
-                    <img class="icon" src=""></a>
-            </li>
-        </ul>
-        <!-- Sticky navigation menu for all 4 tabbed submenus -->
-
-        <!-- START OF: Head shape tab content -->
-        <div class="tab-content" id="headShapeTab-content">
-            <div class="tab-pane fade show active" id="headShapeTab-tabs-1" role="tabpanel"
-                aria-labelledby="headShapeMenu-tab-1">
-                <!-- Head shape pills container -->
-                <ul class="nav nav-pills for-pills mb-3" id="headShapePills" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="headShapeTab-tab-1" data-mdb-toggle="pill"
-                            href="#headShapePills-pills-1" role="tab" aria-controls="headShapePills-pills-1"
-                            aria-selected="true">
-                            <img class="icon" src="icons/head-shape.svg"></a></a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="headShapePills-tab-2" data-mdb-toggle="pill"
-                            href="#headShapePills-pills-2" role="tab" aria-controls="ex1-pills-2" aria-selected="false">
-                            <img class="icon" src="icons/facial-features/cheeks.svg"></a></a></a>
-                    </li>
-                </ul>
-                <!-- END OF: Head shape pills container -->
-
-                <!-- START OF: Head shape tab content -->
-                <hr>
-                <!-- START OF PILL #1: Face shape & skin color -->
-                <div class="tab-content" id="headShapePills-content">
-                    <div class="tab-pane fade show active" id="headShapePills-pills-1" role="tabpanel"
-                        aria-labelledby="headShapePills-tab-1">
-                        <div class="color-palette-container">
-                            <div class="color-icon-with-label">
-                                <div>
-                                    <img class="icon" src="icons/color-palette.svg">
-                                </div>
-                            </div>
-
-                            <div class="color-swatch-container" id="skinColorPalette">
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/head-shape/forehead-width-min.svg">
-                                <img class="icon" src="icons/head-shape/forehead-width-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="0" max="500" value="200" class="form-range"
-                                    id="forehead-width-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/head-shape/cheeks-width-min.svg">
-                                <img class="icon" src="icons/head-shape/cheeks-width-max.svg">
-                            </div>
-                            <div class="range">
-                                <input type="range" class="bar" min="0" max="500" value="500" class="form-range"
-                                    id="cheeks-width-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/head-shape/chin-height-min.svg">
-                                <img class="icon" src="icons/head-shape/chin-height-max.svg">
-                            </div>
-                            <div class="range">
-                                <input type="range" class="bar" min="0" max="500" value="450" class="form-range"
-                                    id="chin-height-slider" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END OF: PILL #1 Face shape & skin color  -->
-
-                    <!-- START OF: PILL #2 Cheeks shape & skin color  -->
-                    <div class="tab-pane fade" id="headShapePills-pills-2" role="tabpanel"
-                        aria-labelledby="headShapePills-tab-2">
-                        <div class="color-palette-container">
-                            <div class="color-icon-with-label">
-                                <div>
-                                    <img class="icon" src="icons/color-palette.svg">
-                                </div>
-                            </div>
-
-                            <div class="color-swatch-container" id="cheeksColorPalette">
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/facial-features/cheeks/cheeks-spacing-min.svg">
-                                <img class="icon" src="icons/facial-features/cheeks/cheeks-spacing-max.svg">
-                            </div>
-                            <div class="range">
-                                <input type="range" class="bar" min="-250" max="250" value="200" class="form-range"
-                                    id="cheeks-spacing-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/facial-features/cheeks/cheeks-ypos-min.svg">
-                                <img class="icon" src="icons/facial-features/cheeks/cheeks-ypos-max.svg">
-                            </div>
-                            <div class="range">
-                                <input type="range" class="bar" min="-250" max="250" value="200" class="form-range"
-                                    id="cheeks-ypos-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/facial-features/cheeks/cheeks-size-min.svg">
-                                <img class="icon" src="icons/facial-features/cheeks/cheeks-size-max.svg">
-                            </div>
-                            <div class="range">
-                                <input type="range" class="bar" min="0" max="200" value="40" class="form-range"
-                                    id="cheeks-size-slider" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Head shape pills container -->
-            </div>
-            <!-- Head shape tab content -->
-
-            <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-                <!-- Pills navs -->
-                <ul class="nav center-pills nav-pills mb-3 " id="ex1" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="pill" href="#ex1-pills-1" role="tab"
-                            aria-controls="ex1-pills-1" aria-selected="true">
-                            <img class="icon" src="icons/hairstyles/choose-hairstyle-menu.svg"></a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="pill" href="#ex1-pills-2" role="tab"
-                            aria-controls="ex1-pills-2" aria-selected="false">
-                            <img class="icon" src="icons/hairstyles/choose-buns-menu.svg"></a></a>
-                    </li>
-                </ul>
-                <hr>
-                <!-- Pills navs -->
-                <!-- Pills content -->
-                <div class="tab-content for-pills" id="ex1-content">
-                    <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
-                        <div class="choose-hairstyle-container">
-                            <div class="btn-group">
-                                <input type="radio" class="btn-check" name="options" id="bouba-hair-selector"
-                                    autocomplete="off" checked />
-                                <label class="btn btn-secondary" for="bouba-hair-selector">
-                                    <div><img class="icon hair" src="icons/bouba-hair-icon.svg">
-                                        <p>bouba Hairstyle</p>
+        <div class="container ui">
+            <!-- Sticky navigation menu for all 4 tabbed submenus -->
+            <ul class="navbar nav nav-tabs nav-fill" id="headShapeTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active tl" id="headShapeTab-tab-1" data-mdb-toggle="tab" href="#headShapeTab-tabs-1"
+                        role="tab" aria-controls="headShapeTab-tabs-1" aria-selected="true">
+                        <img class="icon" src="icons/facial-features/cheeks.svg"></a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab"
+                        aria-controls="ex1-tabs-2" aria-selected="false">
+                        <img class="icon" src="icons/hairstyle.svg"></a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab"
+                        aria-controls="ex1-tabs-3" aria-selected="false">
+                        <img class="icon" src="icons/facial-features.svg"></a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="ex1-tab-4" data-mdb-toggle="tab" href="#ex1-tabs-4" role="tab"
+                        aria-controls="ex1-tabs-4" aria-selected="false">
+                        <img class="icon" src=""></a>
+                </li>
+            </ul>
+            <!-- Sticky navigation menu for all 4 tabbed submenus -->
+    
+            <!-- START OF: Head shape tab content -->
+            <div class="tab-content" id="headShapeTab-content">
+                <div class="tab-pane fade show active" id="headShapeTab-tabs-1" role="tabpanel"
+                    aria-labelledby="headShapeMenu-tab-1">
+                    <!-- Head shape pills container -->
+                    <ul class="nav nav-pills for-pills mb-3" id="headShapePills" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="headShapeTab-tab-1" data-mdb-toggle="pill"
+                                href="#headShapePills-pills-1" role="tab" aria-controls="headShapePills-pills-1"
+                                aria-selected="true">
+                                <img class="icon" src="icons/head-shape.svg"></a></a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="headShapePills-tab-2" data-mdb-toggle="pill"
+                                href="#headShapePills-pills-2" role="tab" aria-controls="ex1-pills-2" aria-selected="false">
+                                <img class="icon" src="icons/facial-features/cheeks.svg"></a></a></a>
+                        </li>
+                    </ul>
+                    <!-- END OF: Head shape pills container -->
+    
+                    <!-- START OF: Head shape tab content -->
+                    <hr>
+                    <!-- START OF PILL #1: Face shape & skin color -->
+                    <div class="tab-content" id="headShapePills-content">
+                        <div class="tab-pane fade show active" id="headShapePills-pills-1" role="tabpanel"
+                            aria-labelledby="headShapePills-tab-1">
+                            <div class="color-palette-container">
+                                <div class="color-icon-with-label">
+                                    <div>
+                                        <img class="icon" src="icons/color-palette.svg">
                                     </div>
-                                </label>
-
-                                <input type="radio" class="btn-check" name="options" id="kiki-hair-selector"
-                                    autocomplete="off" />
-                                <label class="btn btn-secondary" for="kiki-hair-selector">
-                                    <div><img class="icon hair" src="icons/kiki-hair-icon.svg">
-                                        <p>Kiki Hairstyle</p>
+                                </div>
+    
+                                <div class="color-swatch-container" id="skinColorPalette">
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/head-shape/forehead-width-min.svg">
+                                    <img class="icon" src="icons/head-shape/forehead-width-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="0" max="500" value="200" class="form-range"
+                                        id="forehead-width-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/head-shape/cheeks-width-min.svg">
+                                    <img class="icon" src="icons/head-shape/cheeks-width-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input type="range" class="bar" min="0" max="500" value="500" class="form-range"
+                                        id="cheeks-width-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/head-shape/chin-height-min.svg">
+                                    <img class="icon" src="icons/head-shape/chin-height-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input type="range" class="bar" min="0" max="500" value="450" class="form-range"
+                                        id="chin-height-slider" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END OF: PILL #1 Face shape & skin color  -->
+    
+                        <!-- START OF: PILL #2 Cheeks shape & skin color  -->
+                        <div class="tab-pane fade" id="headShapePills-pills-2" role="tabpanel"
+                            aria-labelledby="headShapePills-tab-2">
+                            <div class="color-palette-container">
+                                <div class="color-icon-with-label">
+                                    <div>
+                                        <img class="icon" src="icons/color-palette.svg">
                                     </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="color-palette-container">
-                            <div class="color-icon-with-label">
-                                <div>
-                                    <img class="icon" src="icons/color-palette.svg">
+                                </div>
+    
+                                <div class="color-swatch-container" id="cheeksColorPalette">
                                 </div>
                             </div>
-
-                            <div class="color-swatch-container" id="hairColorPalette">
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/hairstyles/hair-fullness-min.svg">
-                                <img class="icon" src="icons/hairstyles/hair-fullness-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="0" max="50" value="15" class="form-range"
-                                    id="hair-fullness-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/hairstyles/hair-length-min.svg">
-                                <img class="icon" src="icons/hairstyles/hair-length-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="-50" max="50" value="15" class="form-range"
-                                    id="hair-length-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/hairstyles/strand-thickness-min.svg">
-                                <img class="icon" src="icons/hairstyles/strand-thickness-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="1" max="15" value="5" class="form-range"
-                                    id="hair-strand-slider" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/hairstyles/bunsize-min.svg">
-                                <img class="icon" src="icons/hairstyles/bunsize-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="0" max="20" value="10" class="form-range"
-                                    id="bun-size-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/hairstyles/buns-xpos-min.svg">
-                                <img class="icon" src="icons/hairstyles/buns-xpos-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="-200" max="200" value="10" class="form-range"
-                                    id="bun-spacing-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/hairstyles/buns-ypos-min.svg">
-                                <img class="icon" src="icons/hairstyles/buns-ypos-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="-250" max="250" value="50" class="form-range"
-                                    id="bun-ypos-slider" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pills content -->
-            </div>
-
-            <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-                <!-- Pills navs -->
-                <ul class="nav nav-pills center-pills mb-3 facial-features nav-fill" id="ex2" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="ex2-tab-1" data-mdb-toggle="pill" href="#ex2-pills-1" role="tab"
-                            aria-controls="ex2-pills-1" aria-selected="true">
-                            <img class="icon" src="icons/facial-features/eyes.svg">
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="ex2-tab-2" data-mdb-toggle="pill" href="#ex2-pills-2" role="tab"
-                            aria-controls="ex2-pills-2" aria-selected="false">
-                            <img class="icon" src="icons/facial-features/nose.svg"></a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="ex2-tab-3" data-mdb-toggle="pill" href="#ex2-pills-3" role="tab"
-                            aria-controls="ex2-pills-3" aria-selected="false"><img class="icon"
-                                src="icons/facial-features/mouth.svg"></a>
-                    </li>
-                </ul>
-                <!-- Pills navs -->
-                <!-- Pills content -->
-                <hr>
-                <div class="tab-content for-pills" id="ex2-content">
-                    <div class="tab-pane fade show active" id="ex2-pills-1" role="tabpanel" aria-labelledby="ex2-tab-1">
-                        <div class="color-palette-container">
-                            <div class="color-icon-with-label">
-                                <div>
-                                    <img class="icon" src="icons/color-palette.svg">
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/facial-features/cheeks/cheeks-spacing-min.svg">
+                                    <img class="icon" src="icons/facial-features/cheeks/cheeks-spacing-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input type="range" class="bar" min="-250" max="250" value="200" class="form-range"
+                                        id="cheeks-spacing-slider" />
                                 </div>
                             </div>
-
-                            <div class="color-swatch-container" id="eyesColorPalette">
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/facial-features/cheeks/cheeks-ypos-min.svg">
+                                    <img class="icon" src="icons/facial-features/cheeks/cheeks-ypos-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input type="range" class="bar" min="-250" max="250" value="200" class="form-range"
+                                        id="cheeks-ypos-slider" />
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/facial-features/eyes/eye-spacing-min.svg">
-                                <img class="icon" src="icons/facial-features/eyes/eye-spacing-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="0" max="250" value="50" class="form-range"
-                                    id="eye-spacing-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/facial-features/eyes/eye-ypos-min.svg">
-                                <img class="icon" src="icons/facial-features/eyes/eye-ypos-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="-250" max="250" value="50" class="form-range"
-                                    id="eye-ypos-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider one-row">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/facial-features/eyes/eye-width.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="0" max="150" value="50" class="form-range"
-                                    id="eye-width-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider one-row">
-                            <div class="container slider-label">
-                                <img class="icon" src="icons/facial-features/eyes/eye-height.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="0" max="150" value="50" class="form-range"
-                                    id="eye-height-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="0" max="150" value="50" class="form-range"
-                                    id="pupil-size-slider" />
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/facial-features/cheeks/cheeks-size-min.svg">
+                                    <img class="icon" src="icons/facial-features/cheeks/cheeks-size-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input type="range" class="bar" min="0" max="200" value="40" class="form-range"
+                                        id="cheeks-size-slider" />
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="tab-pane fade" id="ex2-pills-2" role="tabpanel" aria-labelledby="ex2-tab-2">
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="/icons/facial-features/nose/nose-length-min.svg">
-                                <img class="icon" src="/icons/facial-features/nose/nose-length-max.svg">
+                    <!-- Head shape pills container -->
+                </div>
+                <!-- Head shape tab content -->
+    
+                <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+                    <!-- Pills navs -->
+                    <ul class="nav center-pills nav-pills mb-3 " id="ex1" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="pill" href="#ex1-pills-1" role="tab"
+                                aria-controls="ex1-pills-1" aria-selected="true">
+                                <img class="icon" src="icons/hairstyles/choose-hairstyle-menu.svg"></a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="pill" href="#ex1-pills-2" role="tab"
+                                aria-controls="ex1-pills-2" aria-selected="false">
+                                <img class="icon" src="icons/hairstyles/choose-buns-menu.svg"></a></a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <!-- Pills navs -->
+                    <!-- Pills content -->
+                    <div class="tab-content for-pills" id="ex1-content">
+                        <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+                            <div class="choose-hairstyle-container">
+                                <div class="btn-group">
+                                    <input type="radio" class="btn-check" name="options" id="bouba-hair-selector"
+                                        autocomplete="off" checked />
+                                    <label class="btn btn-secondary" for="bouba-hair-selector">
+                                        <div><img class="icon hair" src="icons/bouba-hair-icon.svg">
+                                            <p>bouba Hairstyle</p>
+                                        </div>
+                                    </label>
+    
+                                    <input type="radio" class="btn-check" name="options" id="kiki-hair-selector"
+                                        autocomplete="off" />
+                                    <label class="btn btn-secondary" for="kiki-hair-selector">
+                                        <div><img class="icon hair" src="icons/kiki-hair-icon.svg">
+                                            <p>Kiki Hairstyle</p>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="-500" max="500" value="50" class="form-range"
-                                    id="nose-length-slider" />
+    
+                            <div class="color-palette-container">
+                                <div class="color-icon-with-label">
+                                    <div>
+                                        <img class="icon" src="icons/color-palette.svg">
+                                    </div>
+                                </div>
+    
+                                <div class="color-swatch-container" id="hairColorPalette">
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/hairstyles/hair-fullness-min.svg">
+                                    <img class="icon" src="icons/hairstyles/hair-fullness-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="0" max="50" value="15" class="form-range"
+                                        id="hair-fullness-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/hairstyles/hair-length-min.svg">
+                                    <img class="icon" src="icons/hairstyles/hair-length-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-50" max="50" value="15" class="form-range"
+                                        id="hair-length-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/hairstyles/strand-thickness-min.svg">
+                                    <img class="icon" src="icons/hairstyles/strand-thickness-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="1" max="15" value="5" class="form-range"
+                                        id="hair-strand-slider" />
+                                </div>
                             </div>
                         </div>
-
-
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="/icons/facial-features/nose/nose-width-min.svg">
-                                <img class="icon" src="/icons/facial-features/nose/nose-width-max.svg">
+    
+                        <div class="tab-pane fade" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/hairstyles/bunsize-min.svg">
+                                    <img class="icon" src="icons/hairstyles/bunsize-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="0" max="20" value="10" class="form-range"
+                                        id="bun-size-slider" />
+                                </div>
                             </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="0" max="200" value="50" class="form-range"
-                                    id="nose-width-slider" />
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/hairstyles/buns-xpos-min.svg">
+                                    <img class="icon" src="icons/hairstyles/buns-xpos-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-200" max="200" value="10" class="form-range"
+                                        id="bun-spacing-slider" />
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="/icons/facial-features/nose/nose-base-width-max.svg">
-                                <img class="icon" src="/icons/facial-features/nose/nose-base-width-min.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="-0" max="200" value="50" class="form-range"
-                                    id="nose-base-width-slider" />
-                            </div>
-                        </div>
-
-                        <div class="slider">
-                            <div class="container slider-label">
-                                <img class="icon" src="/icons/facial-features/nose/nose-ypos-min.svg">
-                                <img class="icon" src="/icons/facial-features/nose/nose-ypos-max.svg">
-                            </div>
-                            <div class="range">
-                                <input class="bar" type="range" min="-500" max="500" value="50" class="form-range"
-                                    id="nose-base-ypos-slider" />
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/hairstyles/buns-ypos-min.svg">
+                                    <img class="icon" src="icons/hairstyles/buns-ypos-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-250" max="250" value="50" class="form-range"
+                                        id="bun-ypos-slider" />
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="tab-pane fade" id="ex2-pills-3" role="tabpanel" aria-labelledby="ex2-tab-3">
-                        Tab 3 content
+                    <!-- Pills content -->
+                </div>
+    
+                <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+                    <!-- Pills navs -->
+                    <ul class="nav nav-pills center-pills mb-3 facial-features nav-fill" id="ex2" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="ex2-tab-1" data-mdb-toggle="pill" href="#ex2-pills-1" role="tab"
+                                aria-controls="ex2-pills-1" aria-selected="true">
+                                <img class="icon" src="icons/facial-features/eyes.svg">
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="ex2-tab-2" data-mdb-toggle="pill" href="#ex2-pills-2" role="tab"
+                                aria-controls="ex2-pills-2" aria-selected="false">
+                                <img class="icon" src="icons/facial-features/nose.svg"></a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="ex2-tab-3" data-mdb-toggle="pill" href="#ex2-pills-3" role="tab"
+                                aria-controls="ex2-pills-3" aria-selected="false"><img class="icon"
+                                    src="icons/facial-features/mouth.svg"></a>
+                        </li>
+                    </ul>
+                    <!-- Pills navs -->
+                    <!-- Pills content -->
+                    <hr>
+                    <div class="tab-content for-pills" id="ex2-content">
+                        <div class="tab-pane fade show active" id="ex2-pills-1" role="tabpanel" aria-labelledby="ex2-tab-1">
+                            <div class="color-palette-container">
+                                <div class="color-icon-with-label">
+                                    <div>
+                                        <img class="icon" src="icons/color-palette.svg">
+                                    </div>
+                                </div>
+    
+                                <div class="color-swatch-container" id="eyesColorPalette">
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/facial-features/eyes/eye-spacing-min.svg">
+                                    <img class="icon" src="icons/facial-features/eyes/eye-spacing-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="0" max="250" value="50" class="form-range"
+                                        id="eye-spacing-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/facial-features/eyes/eye-ypos-min.svg">
+                                    <img class="icon" src="icons/facial-features/eyes/eye-ypos-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-250" max="250" value="50" class="form-range"
+                                        id="eye-ypos-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider one-row">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/facial-features/eyes/eye-width.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="0" max="150" value="50" class="form-range"
+                                        id="eye-width-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider one-row">
+                                <div class="container slider-label">
+                                    <img class="icon" src="icons/facial-features/eyes/eye-height.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="0" max="150" value="50" class="form-range"
+                                        id="eye-height-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="0" max="150" value="50" class="form-range"
+                                        id="pupil-size-slider" />
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="tab-pane fade" id="ex2-pills-2" role="tabpanel" aria-labelledby="ex2-tab-2">
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="/icons/facial-features/nose/nose-length-min.svg">
+                                    <img class="icon" src="/icons/facial-features/nose/nose-length-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-500" max="500" value="50" class="form-range"
+                                        id="nose-length-slider" />
+                                </div>
+                            </div>
+    
+    
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="/icons/facial-features/nose/nose-width-min.svg">
+                                    <img class="icon" src="/icons/facial-features/nose/nose-width-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="0" max="200" value="50" class="form-range"
+                                        id="nose-width-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="/icons/facial-features/nose/nose-base-width-max.svg">
+                                    <img class="icon" src="/icons/facial-features/nose/nose-base-width-min.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-0" max="200" value="50" class="form-range"
+                                        id="nose-base-width-slider" />
+                                </div>
+                            </div>
+    
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="/icons/facial-features/nose/nose-ypos-min.svg">
+                                    <img class="icon" src="/icons/facial-features/nose/nose-ypos-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-500" max="500" value="50" class="form-range"
+                                        id="nose-base-ypos-slider" />
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="tab-pane fade" id="ex2-pills-3" role="tabpanel" aria-labelledby="ex2-tab-3">
+                            Tab 3 content
+                        </div>
+                    </div>
+                    <!-- Pills content -->
+                </div>
+                <div class="tab-pane fade" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+                    
+                    <br><br><br>
+                    Line Thickness
+                    <div class="slider one-row">
+                        <div class="container slider-label">
+                            <img class="icon" src="">
+                        </div>
+                        <div class="range">
+                            <input class="bar" type="range" min="0" max="15" value="0" class="form-range"
+                                id="face-outline-slider" />
+                        </div>
+                    </div>
+    
+                    Grid X Spacing
+                    <div class="slider one-row">
+                        <div class="container slider-label">
+                            <img class="icon" src="">
+                        </div>
+                        <div class="range">
+                            <input class="bar" type="range" min="25" max="100" value="50" class="form-range"
+                                id="background-grid-spacing-x-slider" />
+                        </div>
+                    </div>
+    
+                    Grid Y Spacing
+                    <div class="slider one-row">
+                        <div class="container slider-label">
+                            <img class="icon" src="">
+                        </div>
+                        <div class="range">
+                            <input class="bar" type="range" min="25" max="100" value="25" class="form-range"
+                                id="background-grid-spacing-y-slider" />
+                        </div>
+                    </div>
+    
+                    Square Size
+                    <div class="slider one-row">
+                        <div class="container slider-label">
+                            <img class="icon" src="">
+                        </div>
+                        <div class="range">
+                            <input class="bar" type="range" min="0" max="80" value="10" class="form-range"
+                                id="background-square-slider" />
+                        </div>
                     </div>
                 </div>
-                <!-- Pills content -->
+                <!-- Tabs content -->
             </div>
-            <div class="tab-pane fade" id="ex1-tabs-4" role="tabpanel" aria-labelledby="ex1-tab-4">
-                
-                <br><br><br>
-                Line Thickness
-                <div class="slider one-row">
-                    <div class="container slider-label">
-                        <img class="icon" src="">
-                    </div>
-                    <div class="range">
-                        <input class="bar" type="range" min="0" max="15" value="0" class="form-range"
-                            id="face-outline-slider" />
-                    </div>
-                </div>
-
-                Grid X Spacing
-                <div class="slider one-row">
-                    <div class="container slider-label">
-                        <img class="icon" src="">
-                    </div>
-                    <div class="range">
-                        <input class="bar" type="range" min="25" max="100" value="50" class="form-range"
-                            id="background-grid-spacing-x-slider" />
-                    </div>
-                </div>
-
-                Grid Y Spacing
-                <div class="slider one-row">
-                    <div class="container slider-label">
-                        <img class="icon" src="">
-                    </div>
-                    <div class="range">
-                        <input class="bar" type="range" min="25" max="100" value="25" class="form-range"
-                            id="background-grid-spacing-y-slider" />
-                    </div>
-                </div>
-            </div>
-            <!-- Tabs content -->
         </div>
     </div>
+
+
     <script src="./canvas.js"></script>
     <script src="./ui.js"></script>
 </body>
