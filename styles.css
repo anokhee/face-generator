@@ -3,7 +3,6 @@
 }
 
 canvas {
-    width: 50%;
     z-index: 100;
 }
 
@@ -20,7 +19,6 @@ h3 {
     position: fixed !important;
     top: 0;
     width: 50% !important;
-
     background-color: #E6DE8A;
     border-radius: 20px 20px 0px 0px;
     padding: 0px !important;
@@ -28,10 +26,14 @@ h3 {
     z-index: 99999;
 }
 
-
 .navbar .nav-item {
     width: 1/5;
 }
+
+.container {
+    max-width: 100% !important; 
+}
+
 
 .navbar .nav-link {
     padding-left: 2px !important;
@@ -50,8 +52,8 @@ h3 {
 .nav-pills .nav-item .nav-link {
     border-radius: 20px !important;
     background-color: #F6D4D4;
-    margin: 10px;
-    margin-top: 30px;
+    margin: 5px;
+    margin-top: 50px;
 }
 
 .nav-pills .active {
@@ -75,11 +77,6 @@ h3 {
 }
 
 
-.navbar .nav-item:hover,
-.navbar .nav-link:hover {
-    background-color: #dee8b8 !important;
-}
-
 .navbar .active {
     background-color: #E6D200 !important;
     border-bottom: none !important;
@@ -95,13 +92,20 @@ h3 {
     border-radius: 0px 20px 0px 0px !important;
 }
 
+
+.navbar .nav-item:hover,
+.navbar .nav-link:hover {
+    background-color: #dee8b8 !important;
+}
+
+
 .slider-label,
 .color-palette-container {
     align-items: center;
     background-color: #EBE4E4;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 15px;
 }
 
 .color-palette-container {
@@ -127,7 +131,7 @@ h3 {
     display: flex;
     margin: 0 auto;
     flex-wrap: wrap;
-    width: auto;
+    width: 80%;
     height: auto;
     margin-top: 10px;
 }
@@ -154,15 +158,17 @@ h3 {
     margin-right: 30px;
 }
 
-.hair {
-    width: 50px !important;
-    height: 50px !important;
+.choose-hairstyle-container {
+    margin-top: 30px 0px 30px 0px;
+    text-align: center;
+    margin: 0 auto;
+    width: 100% !important;
 }
 
-.choose-hairstyle-container {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: center;
+
+.hair {
+    width: 35px !important;
+    height: 35px !important;
 }
 
 div.btn-group {
@@ -170,28 +176,32 @@ div.btn-group {
     text-align: center;
     width: inherit;
     justify-content: center;
+    margin: 0 auto;
 }
 
 div.btn-group div {
     display: flex;
     margin-top: 15px;
     align-items: center;
-    margin: 0 auto;
+    justify-content: center !important;
+    margin: 0 auto !important;
 }
 
 div.btn-group:hover {
     box-shadow: none;
 }
 
+
 div.btn-group label {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
-    background-color: #0065FF;
-    border-radius: 20px !important;
-    margin-left: 15px;
-    margin-right: 15px;
+    background-color: #95bfff;
+    border-radius: 15px !important;
+    margin: 0px 10px 0px 10px;
     text-align: left;
     text-transform: lowercase !important;
+    padding: 10px 30px 10px 30px !important;
+    width: 100%;
 }
 
 div.btn-group label p,
@@ -276,15 +286,14 @@ input[type="range"]::-ms-fill-upper {
     margin: 10px !important;
 }
 
+
+
 .ui {
     background-color: #FFFFFF;
     margin-top: 100px;
     z-index: -99;
     padding: 0px !important;
 }
-
-
-
 
 .one-row {
     display: flex;
@@ -303,4 +312,79 @@ input[type="range"]::-ms-fill-upper {
     padding-bottom: 10px;
     width: 15%;
     margin: 10px;
+}
+
+#polygon-maker-container {
+    width: 100%;
+}
+
+.polygon-maker {
+    background: #efefef;
+    box-shadow: 3px 6px 10px #aaa;
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #fefefe;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+
+.polygon-maker input {
+    margin: 0 auto;
+}
+
+.polygon-preview-container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 0px !important;
+}
+
+.polygon-preview {
+    width: auto;
+    height: auto;
+    z-index: 0;
+}
+
+.polygon-preview {
+    z-index: 0;
+}
+
+.color-mod-container {
+    border: 1px solid #d8d8d8;
+    display: block;
+    width: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.color-mod-container .color-palette-container {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: none;
+}
+
+.pattern {
+    background: none !important;
+    padding: 0px 20px 0px 20px !important;
+    margin-top: 20px !important;
+}
+
+.pattern .slider-label {
+    padding: 0px !important;
+    background: none;
+    width: 100%;
+}
+
+label, .slider-label {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-weight: 400;
+    font-size: 14px;
 }

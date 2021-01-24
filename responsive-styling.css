@@ -1,7 +1,6 @@
-
 /* Responsive Sizing for Mobile Devices */
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 1025px) {
     canvas {
         width: 50% !important;
     }
@@ -14,78 +13,89 @@
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
     canvas {
         width: 100%;
     }
 
     .navbar {
-        margin-top: 550px;
+        margin-top: 700px;
         width: 100% !important;
     }
 
     .ui {
-        margin-top: 620px;
+        margin: 0px !important;
+        margin-top: 780px !important;
     }
+
+    .nav-pills {
+        margin-top: 50px !important;
+    }
+
+    .choose-hairstyle-container {
+        width: 80% !important;
+    }
+
 }
+
 
 @media only screen and (max-width: 600px) {
     .navbar {
-        margin-top: 400px;
+        margin-top: 400px !important;
     }
 
     .ui {
-        margin-top: 480px;
+        margin-top: 480px !important;
     }
 }
 
 
 @media only screen and (max-width: 500px) {
     .navbar {
-        margin-top: 350px;
+        margin-top: 350px !important;
     }
 
     .ui {
-        margin-top: 420px;
+        margin-top: 420px !important;
     }
 }
 
 @media only screen and (max-width: 450px) {
     .navbar {
-        margin-top: 290px;
+        margin-top: 290px !important;
     }
 
     .ui {
-        margin-top: 300px;
+        margin-top: 350px !important;
     }
 }
 
 @media only screen and (max-width: 375px) {
     .navbar {
-        margin-top: 270px;
+        margin-top: 270px !important;
     }
 
     .ui {
-        margin-top: 330px;
+        margin-top: 330px !important;
     }
 }
 
 @media only screen and (max-width: 350px) {
     .navbar {
-        margin-top: 220px;
+        margin-top: 220px !important;
     }
 
     .ui {
-        margin-top: 350px;
+        margin-top: 280px !important;
     }
 }
 
 @media only screen and (max-width: 300px) {
     .navbar {
-        margin-top: 200px;
+        margin-top: 200px !important;
     }
 
     .ui {
-        margin-top: 270px;
+        margin-top: 270px !important;
     }
 }

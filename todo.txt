@@ -8,3 +8,5 @@ TO DO (nice to haves):
 - Fill/Don't Fill nose toggle
 - Remove Color
 - Figure out how to work sessions :P 
+- Refactor all functions that bind values to sliders 
+- Improve shape generator UI

@@ -7,16 +7,18 @@ canvas.height = height;
 canvas.style.position = "fixed";
 canvas.style.top = "0";
 let face, palette, background;
+let polygonsArr;
 let centerX = width / 2;
 let centerY = height / 3.25;
 
 setup();
 
 function setup() {
-    c.clearRect(0, 0, canvas.width, canvas.height);
+    c.clearRect(0, 0, width, height);
     face = new Face();
     palette = new Palette();
     background = new BackgroundPattern;
+    polygonsArr = [];
     draw();
 };
 
@@ -31,7 +33,6 @@ function draw() {
     c.lineCap = 'round';
     c.lineWidth = palette.strokeWeight;
     c.strokeStyle = palette.strokeStyle;
-    document.body.style.backgroundColor = palette.backgroundColor;
     for (i = face.bunSize; i > 0; i = i - face.hairstr) {
         c.beginPath();
         c.ellipse(centerX - face.hsx - face.bunx,
@@ -210,8 +211,6 @@ function setBackground(color) {
     c.strokeStyle = background.gridStroke;
     c.strokeStyle = palette.stroke;
 
-    let squareSize = background.squareSize;
-
     for (let i = -background.gridSpacingX; i < (width * 3.5) / background.gridSpacingX; i++) {
         c.beginPath();
         c.moveTo(i * background.gridSpacingX, 0);
@@ -225,12 +224,9 @@ function setBackground(color) {
 
         //Pattern maker 
         for (j = -background.gridSpacingY; j < (width * 2) / background.gridSpacingY / 2; j++) {
-            c.beginPath();
-            c.strokeStyle = `rgba(0, 0, 0, 0)`;
-            c.fillStyle = `rgba(50, 10, 200, .25)`;
-            c.rect(i * background.gridSpacingX - squareSize / 2, j * background.gridSpacingY - squareSize / 2, squareSize, squareSize);
-            c.fill();
-            c.stroke();
+            polygonsArr.forEach(function(polygon) {
+                makePolygon(c, polygon, polygon.sides, polygon.size, background.gridSpacingX, background.gridSpacingY, polygon.rotation, i, j);
+            });
         }
 
         c.lineWidth = background.gridStrokeWeight;

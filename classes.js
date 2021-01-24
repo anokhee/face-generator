@@ -58,14 +58,22 @@ function Palette() {
     this.stroke = `rgba(0, 0, 0, ${this.strokeOpacity})`;
 }
 
-function BackgroundPattern(){
+function BackgroundPattern() {
     this.gridStrokeWeight = .5;
     this.gridStrokeOpacity = .25;
-    this.gridStroke = `rgba(0, 0, 255, ${this.gridStrokeOpacity})`;
+    this.gridStroke = `rgba(0, 0, 0, ${this.gridStrokeOpacity})`;
 
     this.gridSpacingX = 50;
-    this.gridSpacingY = 50;   
-
-    this.squareSize = 12;
+    this.gridSpacingY = 50;
 }
 
+function Polygon() {
+    this.sides = 3;
+    this.size = 12;
+    this.translateX = 0;
+    this.translateY = 0;
+    this.color = `rgba(0, 0, 200, 1)`;
+    this.stroke = `rgba(0, 0, 0, 0)`;
+    this.strokeWeight = 1;
+    this.rotation = 0;
+}
