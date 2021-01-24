@@ -12,10 +12,7 @@ function makePolygon(context, polygon, sides, squareSize, xPos, yPos, rotation, 
     context.moveTo(Xcenter + size * Math.cos(0) + polygon.translateX,
         Ycenter + size * Math.sin(0) + polygon.translateY);
 
-
-
     for (var i = 1; i <= numberOfSides; i += 1) {
-
         context.lineTo(Xcenter + size * Math.cos(i * 2 * Math.PI / numberOfSides) + polygon.translateX,
             Ycenter + size * Math.sin(i * 2 * Math.PI / numberOfSides) + polygon.translateY);
     }

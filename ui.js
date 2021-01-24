@@ -25,13 +25,16 @@ let noseYPosSlider = document.getElementById('nose-base-ypos-slider');
 let noseWidthSlider = document.getElementById('nose-width-slider');
 let noseLengthSlider = document.getElementById('nose-length-slider');
 
+let smileWidthSlider = document.getElementById('mouth-width-slider');
+let smileIntensitySlider = document.getElementById('mouth-smile-intensity-slider');
+let mouthWidthSlider = document.getElementById('mouth-cheekiness-slider');
+let mouthYPosSlider = document.getElementById('mouth-ypos-slider');
+
 let faceOutlineSlider = document.getElementById('face-outline-slider');
 let gridOutlineSlider = document.getElementById('background-grid-opacity-slider');
 let backgroundGridXSpacingSlider = document.getElementById('background-grid-spacing-x-slider');
 let backgroundGridYSpacingSlider = document.getElementById('background-grid-spacing-y-slider');
 
-let polygonSizeSlider = document.getElementById('polygon-size-slider');
-let polygonSidesSlider = document.getElementById('polygon-sides-slider');
 
 let arr = [
     [face, foreheadWidthSlider, `hsx`],
@@ -52,6 +55,10 @@ let arr = [
     [face, noseYPosSlider, 'noseY'],
     [face, noseWidthSlider, 'noseX'],
     [face, noseLengthSlider, 'noseCy'],
+    [face, smileWidthSlider, 'mouthX'],
+    [face, mouthWidthSlider, 'mouthCx'],
+    [face, smileIntensitySlider, 'mouthCy'],
+    [face, mouthYPosSlider, 'mouthY'],
     [face, cheeksSpacingSlider, 'chSpacing'],
     [face, cheeksYPosSlider, 'chYpos'],
     [face, cheeksSizeSlider, 'ch'],
@@ -96,9 +103,12 @@ let eyeColors = ['#151005', '#36290C', '#097D60',
     '#456D6A', '#305ABA', '#0069B9', '#B8B4C6'
 ];
 
-let backgroundColors = ['red', 'blue', 'green', 'yellow', '#F8F8F8', '#E6D200', '#7F7FC1', '#4FE1FF',
-    '#CE8282', '#F2E87E', '#F7B0B0', '#FAF8E7', '#9E8F5E', '#4A363E'
-]
+let backgroundColors = ['#F8F8F8', '#E6D200', '#7F7FC1', '#4FE1FF',
+    '#CE8282', '#F2E87E', '#F7B0B0', '#FAF8E7', '#9E8F5E', '#4A363E',
+    '#4FE1FF', '#E6D200', '#B80C09', '#2B3D41', '#0C7C59', '#1C110A',
+    '#FD96A9', '#FC814A', '#0065FF', '#30292F', '#F2ED6F', '#32A287', '#E88873', '#F85E00',
+    '#503047', '#BFDBF7', '#D7BCE8', '#E4572E'
+];
 
 function createColorSwatch(pal, arr, part, type) {
     part = Object.keys(type)[part];
@@ -157,6 +167,29 @@ function createPolygonMaker(polygon) {
     polygonMaker.className = 'polygon-maker';
     polygonMakerContainer.appendChild(polygonMaker);
 
+    let top = document.createElement('div');
+    top.className = 'top';
+    polygonMaker.appendChild(top);
+
+    let title = document.createElement('h3');
+    title.innerHTML = `Shape`;
+    title.className = 'shape-name';
+    top.appendChild(title);
+
+    let xButton = document.createElement('div');
+    xButton.className = 'close';
+    top.appendChild(xButton);
+
+    xButton.addEventListener('click', function () {
+        let index = polygonsArr.indexOf(polygon);
+        polygonMakerContainer.removeChild(polygonMaker);
+        polygonsArr.splice(index, 1);
+
+
+        
+    });
+
+
     let polygonPreviewContainer = document.createElement('div');
     polygonPreviewContainer.className = 'polygon-preview-container';
     polygonMaker.appendChild(polygonPreviewContainer);
@@ -173,7 +206,7 @@ function createPolygonMaker(polygon) {
         pCtx.lineJoin = 'round';
         pCtx.lineCap = 'round';
         pCtx.beginPath();
-        makePolygon(pCtx, polygon, polygon.sides, polygon.size * 4, background.gridSpacingX, background.gridSpacingY, 1, 1);
+        makePolygon(pCtx, polygon, polygon.sides, polygon.size, background.gridSpacingX, background.gridSpacingY, polygon.rotation, 1, 1);
         pCtx.stroke();
     }
 
@@ -250,6 +283,9 @@ function createPolygonMaker(polygon) {
         generatePreview();
     });
 
+    let lineThicknessSliderLabel = document.createElement('label');
+    lineThicknessSliderLabel.innerHTML = 'Rotation';
+    polygonMaker.appendChild(lineThicknessSliderLabel);
     let lineThicknessSlider = document.createElement('input');
     lineThicknessSlider.type = 'range';
     lineThicknessSlider.value = 0;
@@ -266,6 +302,10 @@ function createPolygonMaker(polygon) {
         generatePreview();
     });
 
+
+    let rotationSliderLabel = document.createElement('label');
+    rotationSliderLabel.innerHTML = 'Line Thickness';
+    colorModContainer.appendChild(rotationSliderLabel);
     let rotationSlider = document.createElement('input');
     rotationSlider.type = 'range';
     rotationSlider.value = 0;

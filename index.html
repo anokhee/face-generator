@@ -445,7 +445,48 @@
                         </div>
 
                         <div class="tab-pane fade" id="ex2-pills-3" role="tabpanel" aria-labelledby="ex2-tab-3">
-                            Tab 3 content
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="/icons/facial-features/mouth/cheekiness-min.svg">
+                                    <img class="icon" src="/icons/facial-features/mouth/cheekiness-max.svg"> </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-500" max="500" value="50" class="form-range"
+                                        id="mouth-cheekiness-slider" />
+                                </div>
+                            </div>
+
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="/icons/facial-features/mouth/smile-intensity-min.svg">
+                                    <img class="icon" src="/icons/facial-features/mouth/smile-intensity-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-500" max="500" value="50" class="form-range"
+                                        id="mouth-smile-intensity-slider" />
+                                </div>
+                            </div>
+
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="/icons/facial-features/mouth/smile-width-min.svg">
+                                    <img class="icon" src="/icons/facial-features/mouth/smile-width-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-500" max="500" value="50" class="form-range"
+                                        id="mouth-width-slider" />
+                                </div>
+                            </div>
+
+                            <div class="slider">
+                                <div class="container slider-label">
+                                    <img class="icon" src="/icons/facial-features/mouth/mouth-y-pos-min.svg">
+                                    <img class="icon" src="/icons/facial-features/mouth/mouth-ypos-max.svg">
+                                </div>
+                                <div class="range">
+                                    <input class="bar" type="range" min="-500" max="500" value="50" class="form-range"
+                                        id="mouth-ypos-slider" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Pills content -->
@@ -496,7 +537,12 @@
                     </div>
 
                     <div id="polygon-maker-container"></div>
-                    <button type="button" class="btn btn-primary" id="add-new-shape-to-pattern-btn">Add New Shape to Pattern</button>
+
+                    <div class="add-new-shape-btn-container">
+                        <button type="button" class="btn btn-primary" id="add-new-shape-to-pattern-btn">Add New Shape to
+                            Pattern</button>
+                    </div>
+                    <div style="height: 100px"></div>
 
                 </div>
             </div>
