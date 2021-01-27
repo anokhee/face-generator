@@ -31,7 +31,7 @@ h3 {
 }
 
 .container {
-    max-width: 100% !important; 
+    max-width: 100% !important;
 }
 
 
@@ -174,17 +174,19 @@ h3 {
 div.btn-group {
     box-shadow: none;
     text-align: center;
-    width: inherit;
-    justify-content: center;
+    width: 60% !important;
     margin: 0 auto;
-}
-
-div.btn-group div {
-    display: flex;
-    margin-top: 15px;
     align-items: center;
     justify-content: center !important;
     margin: 0 auto !important;
+}
+
+.btn-check:active+.btn-secondary,
+.btn-check:checked+.btn-secondary,
+.btn-secondary.active,
+.btn-secondary:active,
+.show>.btn-secondary.dropdown-toggle div.btn-group div {
+    background-color: #0065FF !important;
 }
 
 div.btn-group:hover {
@@ -195,13 +197,15 @@ div.btn-group:hover {
 div.btn-group label {
     font-size: 14px;
     font-weight: 400;
-    background-color: #95bfff;
+    background-color: rgba(0, 101, 255, .5);
     border-radius: 15px !important;
     margin: 0px 10px 0px 10px;
-    text-align: left;
+    text-align: center;
     text-transform: lowercase !important;
     padding: 10px 30px 10px 30px !important;
     width: 100%;
+    justify-content: center;
+
 }
 
 div.btn-group label p,
@@ -282,7 +286,8 @@ input[type="range"]::-ms-fill-upper {
     z-index: -999;
 }
 
-.slider, .color-palette-container {
+.slider,
+.color-palette-container {
     margin: 10px !important;
 }
 
@@ -382,7 +387,8 @@ input[type="range"]::-ms-fill-upper {
     width: 100%;
 }
 
-label, .slider-label {
+label,
+.slider-label {
     padding-top: 20px;
     padding-bottom: 5px;
     font-weight: 400;
@@ -405,7 +411,7 @@ label, .slider-label {
     top: 0;
     padding: 0px !important;
     margin: 0px !important;
-   
+
 }
 
 .polygon-maker .shape-name {
